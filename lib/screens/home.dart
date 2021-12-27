@@ -1,5 +1,5 @@
+import 'package:events_app/screens/sign_in.dart';
 import 'package:flutter/material.dart';
-
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -22,34 +22,43 @@ class Home extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height*0.30,
+                height: MediaQuery.of(context).size.height * 0.30,
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0),
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height*0.15,
-                  width: MediaQuery.of(context).size.width*0.5,
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  width: MediaQuery.of(context).size.width * 0.5,
                   child: Container(
                     color: Colors.white,
                   ),
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height*0.07,
-                width: MediaQuery.of(context).size.width*0.8,
+                height: MediaQuery.of(context).size.height * 0.07,
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: Container(
                   color: Colors.white,
                 ),
               ),
-              Padding(padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.08),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(onPressed: (){}, child: Text("Sign Up")),
-                  ElevatedButton(onPressed: (){}, child: Text("Sign In"))
-                ],
-              ),)
-
+              Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.08),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignInWidget()));
+                        },
+                        child: Text("Sign Up")),
+                    ElevatedButton(onPressed: () {}, child: Text("Sign In"))
+                  ],
+                ),
+              )
             ],
           )
         ],
