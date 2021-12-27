@@ -1,5 +1,7 @@
-import 'package:events_app/screens/sign_in.dart';
+import 'package:events_app/screens/sign_up.dart';
+import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -52,10 +54,20 @@ class Home extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SignInWidget()));
+                                  builder: (context) => const SignUpWidget()));
                         },
-                        child: Text("Sign Up")),
-                    ElevatedButton(onPressed: () {}, child: Text("Sign In"))
+                        child: Text(
+                          "Sign Up",
+                          style: GoogleFonts.sourceSansPro(
+                              color: colors.darkButtonTextColor,
+                          fontWeight: FontWeight.w700),
+                        )),
+                    ElevatedButton(
+                        onPressed: () {},
+                        child: Text("Sign In",
+                            style: GoogleFonts.sourceSansPro(
+                                color: colors.darkButtonTextColor,
+                            fontWeight: FontWeight.w700))),
                   ],
                 ),
               )
