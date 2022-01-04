@@ -1,8 +1,9 @@
+import 'package:events_app/screens/bottom_navg.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:events_app/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'category.dart';
 class SignUpWidget extends StatelessWidget {
   const SignUpWidget({Key? key}) : super(key: key);
 
@@ -66,7 +67,10 @@ class SignUpWidget extends StatelessWidget {
                     padding: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height * 0.05),
                     child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Bottom()));},
                         icon: Icon(
                           Icons.arrow_right_alt_rounded,
                           color: colors.darkScaffoldColor,
