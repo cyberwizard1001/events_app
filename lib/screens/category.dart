@@ -31,6 +31,8 @@ class _CategoryState extends State<Category> {
         padding: EdgeInsets.fromLTRB( 5, 30, 5, 30),
         
         children: [
+
+          padding( "assets/background.png", "assets/cultural.png", "trial"),
           Padding(
             padding: const EdgeInsets.fromLTRB( 5, 25, 5, 25),
             child:
@@ -147,6 +149,43 @@ class _CategoryState extends State<Category> {
 }
 
 
+Padding padding(leading, trailing, title){
+  return Padding(
+      padding:  const EdgeInsets.fromLTRB( 5, 25, 5, 25),
+      child: Card(
+        color: colors.darkScaffoldColor,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+
+
+            InkWell(
+              splashColor: colors.darkAccentColor,
+              onTap: (){},
+              child:Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: ListTile(
+                    leading: Image.asset(leading),
+                    title:   Text("title",textAlign: TextAlign.right,
+
+                        style: GoogleFonts.sourceSansPro(
+                            color: colors.darkAccentColor,
+
+                            fontSize: 50,
+                            fontWeight: FontWeight.w400)),
+                    trailing: Image.asset( trailing),
+                  )) ,
+            )
+          ],
+        ),
+
+
+      )
+
+  );
+}
 
 
 
