@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
@@ -22,15 +25,44 @@ class _UpcomingState extends State<Upcoming> {
         ),
       ),
         backgroundColor: colors.darkScaffoldColor,
+leading: IconButton(icon:Icon(Icons.line_weight_sharp), onPressed: (){},),
+
 
       ),
       backgroundColor: colors.darkScaffoldColor,
-      body: Stack(
+      body:    Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Card(
 
+elevation: 10,
+shape: RoundedRectangleBorder(
+  borderRadius: BorderRadius.circular(6)
+),
+            child:Stack(
+              children: [
+                Ink.image(
+
+                  image: AssetImage("assets/events.png"),
+                  child: InkWell(
+                    onTap: (){},
+                  ),
+                  fit: BoxFit.cover,),
+                Text(
+                  "Categories",
+                  textAlign: TextAlign.left,
+                  style: GoogleFonts.sourceSansPro(
+                      color: colors.darkPrimaryTextColor,
+                      fontWeight: FontWeight.w700),
+                ),
+              ],
+            )
+          )
         ],
-      ),
+      )
+
 
     );
   }
 }
+

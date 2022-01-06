@@ -1,4 +1,5 @@
 import 'package:events_app/screens/home.dart';
+import 'package:events_app/screens/side_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,15 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.supervised_user_circle_outlined),
+          onPressed: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SideBar()));
+          },
+        ),
         title: Center(
           child: Text(
             "Categories",
@@ -32,114 +42,9 @@ class _CategoryState extends State<Category> {
         
         children: [
 
-          padding( "assets/background.png", "assets/cultural.png", "trial"),
-          Padding(
-            padding: const EdgeInsets.fromLTRB( 5, 25, 5, 25),
-            child:
-            Card(
-              color: colors.darkScaffoldColor,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-
-
-                  InkWell(
-                    splashColor: colors.darkAccentColor,
-                    onTap: (){},
-                    child:Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: ListTile(
-                          leading: Image.asset("assets/background.png"),
-                          title:   Text("Spiritual",textAlign: TextAlign.right,
-
-                              style: GoogleFonts.sourceSansPro(
-                                  color: colors.darkAccentColor,
-
-                                  fontSize: 50,
-                                  fontWeight: FontWeight.w400)),
-                        )) ,
-                  )
-                ],
-              ),
-
-
-            )
-
-          ),
-
-
-          Padding(
-            padding: const EdgeInsets.fromLTRB( 5, 25, 5, 25),
-            child: Card(
-              color: colors.darkScaffoldColor,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-
-
-                  InkWell(
-                    splashColor: colors.darkAccentColor,
-                    onTap: (){},
-                    child:Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: ListTile(
-                          title:  Text("Technical",textAlign: TextAlign.left,
-
-                              style: GoogleFonts.sourceSansPro(
-                                  color: colors.darkAccentColor,
-
-                                  fontSize: 50,
-                                  fontWeight: FontWeight.w400)),
-                          trailing:  Image.asset("assets/background.png")
-                        )) ,
-                  )
-                ],
-              ),
-
-
-            )
-          ),
-
-
-
-
-          Padding(
-            padding:  const EdgeInsets.fromLTRB( 5, 25, 5, 25),
-            child: Card(
-              color: colors.darkScaffoldColor,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-
-
-                  InkWell(
-                    splashColor: colors.darkAccentColor,
-                    onTap: (){},
-                    child:Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: ListTile(
-                          leading: Image.asset("assets/background.png"),
-                          title:   Text("Cultural",textAlign: TextAlign.right,
-
-                              style: GoogleFonts.sourceSansPro(
-                                  color: colors.darkAccentColor,
-
-                                  fontSize: 50,
-                                  fontWeight: FontWeight.w400)),
-                        )) ,
-                  )
-                ],
-              ),
-
-
-            )
-          ),
+          padding( "assets/spiritual.png", "assets/img.png", "Spritual", TextAlign.right),
+          padding( "assets/img.png", "assets/technical.png", "Technical", TextAlign.left),
+          padding( "assets/cultural.png", "assets/img.png", "Cultural", TextAlign.right),
 
 
         ],
@@ -149,7 +54,8 @@ class _CategoryState extends State<Category> {
 }
 
 
-Padding padding(leading, trailing, title){
+Padding padding(leading, trailing, title, align){
+
   return Padding(
       padding:  const EdgeInsets.fromLTRB( 5, 25, 5, 25),
       child: Card(
@@ -167,15 +73,15 @@ Padding padding(leading, trailing, title){
               child:Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: ListTile(
-                    leading: Image.asset(leading),
-                    title:   Text("title",textAlign: TextAlign.right,
+                    leading: Image.asset(leading, height: 100,width: 100,),
+                    title:   Text(title,textAlign: align,
 
                         style: GoogleFonts.sourceSansPro(
                             color: colors.darkAccentColor,
 
                             fontSize: 50,
                             fontWeight: FontWeight.w400)),
-                    trailing: Image.asset( trailing),
+                    trailing: Image.asset( trailing, height: 100,width: 100,),
                   )) ,
             )
           ],

@@ -101,7 +101,7 @@ packages:
       name: google_fonts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.2.0"
   google_nav_bar:
     dependency: "direct main"
     description:
