@@ -1,3 +1,4 @@
+import 'package:events_app/screens/sign_in.dart';
 import 'package:events_app/screens/sign_up.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
@@ -63,7 +64,12 @@ class Home extends StatelessWidget {
                           fontWeight: FontWeight.w700),
                         )),
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignInWidget()));
+                        },
                         child: Text("Sign In",
                             style: GoogleFonts.sourceSansPro(
                                 color: colors.darkButtonTextColor,

@@ -10,7 +10,6 @@ class SignUpWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -35,10 +34,13 @@ class SignUpWidget extends StatelessWidget {
                       const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
                   child: TextFormField(
                     style: darkTheme.DarkTheme.textTheme.bodyText1,
-                    decoration: const InputDecoration(
-                      hintText: "Please enter username here",
-                      label: Text("Username"),
-                    ),
+                    decoration: InputDecoration(
+                        hintText: "Please enter username here",
+                        label: const Text("Username"),
+                        hintStyle:
+                            GoogleFonts.poppins(color: colors.darkTextBoxColor),
+                        labelStyle: GoogleFonts.poppins(
+                            color: colors.darkTextBoxColor)),
                   ),
                 ),
                 Padding(
@@ -46,10 +48,13 @@ class SignUpWidget extends StatelessWidget {
                       const EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
                   child: TextFormField(
                     style: darkTheme.DarkTheme.textTheme.bodyText1,
-                    decoration: const InputDecoration(
-                      hintText: "Please enter password here",
-                      label: Text("Password"),
-                    ),
+                    decoration: InputDecoration(
+                        hintText: "Please enter password here",
+                        label: const Text("Password"),
+                        hintStyle:
+                            GoogleFonts.poppins(color: colors.darkTextBoxColor),
+                        labelStyle: GoogleFonts.poppins(
+                            color: colors.darkTextBoxColor)),
                   ),
                 ),
                 Padding(
@@ -57,9 +62,18 @@ class SignUpWidget extends StatelessWidget {
                       const EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
                   child: TextFormField(
                     style: darkTheme.DarkTheme.textTheme.bodyText1,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: "Enter phone number here",
-                      label: Text("Phone Number"),
+                      label: const Text("Phone Number"),
+                      hintStyle:
+                          GoogleFonts.poppins(color: colors.darkTextBoxColor),
+                      labelStyle:
+                          GoogleFonts.poppins(color: colors.darkTextBoxColor),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 1.0,
+                              style: BorderStyle.solid,
+                              color: colors.darkAccentColor)),
                     ),
                   ),
                 ),
@@ -70,7 +84,7 @@ class SignUpWidget extends StatelessWidget {
                         onPressed: () {Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Bottom()));},
+                                builder: (context) => const CategoryScreen()));},
                         icon: Icon(
                           Icons.arrow_right_alt_rounded,
                           color: colors.darkScaffoldColor,
