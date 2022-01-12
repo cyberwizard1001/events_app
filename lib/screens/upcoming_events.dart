@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:events_app/screens/sign_up.dart';
 import 'package:events_app/widgets/events_preview.dart';
+import 'package:events_app/widgets/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
@@ -19,6 +20,7 @@ class _UpcomingState extends State<Upcoming> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+drawer: Profile(),
       appBar: AppBar(title: Center(
         child: Text("Upcoming Events", style:  GoogleFonts.sourceSansPro(
             color: colors.darkPrimaryTextColor,
@@ -27,23 +29,19 @@ class _UpcomingState extends State<Upcoming> {
         ),
       ),
         backgroundColor: colors.darkScaffoldColor,
-leading: IconButton(icon:Icon(Icons.line_weight_sharp), onPressed: (){},),
+
 
 
       ),
       backgroundColor: colors.darkScaffoldColor,
-      body:Container(
-        child:  SingleChildScrollView(
-          child: Column(
-            children: [
-              Events_Preview( "Event 1", "assets/events.png", SignUpWidget()),
-              Events_Preview( "Event 2", "assets/events.png", SignUpWidget()),
-              Events_Preview( "Event 3", "assets/events.png", SignUpWidget()),
-              Events_Preview( "Event 4", "assets/events.png", SignUpWidget()),
+      body:Column(
+        children: [
+          Events_Preview( "Event 1", "assets/events.png", SignUpWidget()),
+          Events_Preview( "Event 2", "assets/events.png", SignUpWidget()),
+          Events_Preview( "Event 3", "assets/events.png", SignUpWidget()),
+          Events_Preview( "Event 4", "assets/events.png", SignUpWidget()),
 
-            ],
-          ),
-        ),
+        ],
       )
 
 

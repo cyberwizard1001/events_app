@@ -7,6 +7,7 @@ import 'package:events_app/widgets/Categories.dart';
 import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:events_app/widgets/data_card.dart';
 import 'package:events_app/widgets/events_preview.dart';
+import 'package:events_app/widgets/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -29,10 +30,11 @@ class CategoryScreen extends StatelessWidget {
         ),
       ),
         backgroundColor: colors.darkScaffoldColor,
-        leading: IconButton(icon:Icon(Icons.line_weight_sharp), onPressed: (){},),
+
 
 
       ),
+      drawer: Profile(),
 
       body:   Container(
         child: Column(
