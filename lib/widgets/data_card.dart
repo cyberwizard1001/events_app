@@ -5,11 +5,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DataCard extends StatelessWidget {
-  DataCard(this.heading, this.subHeading, this.imageUrl, this.route,
+  DataCard(this.heading,  this.imageUrl, this.route,
       this.startingColor, this.endingColor);
 
   final String heading;
-  final String subHeading;
+
   final String imageUrl;
   final Widget route;
   final Color startingColor;
@@ -64,11 +64,7 @@ class DataCard extends StatelessWidget {
                               style: GoogleFonts.montserrat(
                                   fontSize: 25,
                                   color: colors.darkPrimaryTextColor)),
-                          AutoSizeText(subHeading,
-                              maxLines: 1,
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 15,
-                                  color: colors.darkPrimaryTextColor))
+
                         ],
                       ),
                     ),

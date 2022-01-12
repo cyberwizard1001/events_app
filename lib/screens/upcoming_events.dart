@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:events_app/screens/sign_up.dart';
+import 'package:events_app/widgets/events_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
@@ -30,36 +32,21 @@ leading: IconButton(icon:Icon(Icons.line_weight_sharp), onPressed: (){},),
 
       ),
       backgroundColor: colors.darkScaffoldColor,
-      body:    Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Card(
+      body:Container(
+        child:  SingleChildScrollView(
+          child: Column(
+            children: [
+              Events_Preview( "Event 1", "assets/events.png", SignUpWidget()),
+              Events_Preview( "Event 2", "assets/events.png", SignUpWidget()),
+              Events_Preview( "Event 3", "assets/events.png", SignUpWidget()),
+              Events_Preview( "Event 4", "assets/events.png", SignUpWidget()),
 
-elevation: 10,
-shape: RoundedRectangleBorder(
-  borderRadius: BorderRadius.circular(6)
-),
-            child:Stack(
-              children: [
-                Ink.image(
-
-                  image: AssetImage("assets/events.png"),
-                  child: InkWell(
-                    onTap: (){},
-                  ),
-                  fit: BoxFit.cover,),
-                Text(
-                  "Categories",
-                  textAlign: TextAlign.left,
-                  style: GoogleFonts.sourceSansPro(
-                      color: colors.darkPrimaryTextColor,
-                      fontWeight: FontWeight.w700),
-                ),
-              ],
-            )
-          )
-        ],
+            ],
+          ),
+        ),
       )
+
+
 
 
     );

@@ -84,7 +84,7 @@ class SignUpWidget extends StatelessWidget {
                         onPressed: () {Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const CategoryScreen()));},
+                                builder: (context) => const Bottom()));},
                         icon: Icon(
                           Icons.arrow_right_alt_rounded,
                           color: colors.darkScaffoldColor,
