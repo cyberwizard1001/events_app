@@ -8,10 +8,32 @@ void main() {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  runApp(MaterialApp(
-      home: Home(),
-      debugShowCheckedModeBanner: false,
-      theme: darkTheme.DarkTheme
-  ));
+  runApp(const MainApp());
 }
+
+class MainApp extends StatefulWidget {
+  const MainApp({Key? key})
+      : super(key: key);
+
+  @override
+  State<MainApp> createState() => _FormKeepAliveState();
+}
+
+class _FormKeepAliveState extends State<MainApp>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return MaterialApp(
+        home: const Home(),
+        debugShowCheckedModeBanner: false,
+        theme: darkTheme.DarkTheme
+    );
+  }
+
+  @override
+  bool get wantKeepAlive => true;
+}
+
+
 

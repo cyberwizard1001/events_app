@@ -12,6 +12,7 @@ class SignInWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -37,7 +38,7 @@ class SignInWidget extends StatelessWidget {
                   padding:
                       const EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
                   child: TextFormField(
-                    style: darkTheme.DarkTheme.textTheme.bodyText1,
+                    // style: darkTheme.DarkTheme.textTheme.bodyText1,
                     decoration: const InputDecoration(
                       hintText: "Please enter phone number here",
                       label: Text("Phone Number"),
@@ -48,7 +49,7 @@ class SignInWidget extends StatelessWidget {
                   padding:
                       const EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
                   child: TextFormField(
-                    style: darkTheme.DarkTheme.textTheme.bodyText1,
+                    // style: darkTheme.DarkTheme.textTheme.bodyText1,
                     decoration: const InputDecoration(
                       hintText: "Please enter password here",
                       label: Text("Password"),
@@ -60,9 +61,13 @@ class SignInWidget extends StatelessWidget {
                         top: MediaQuery.of(context).size.height * 0.05),
                     child: ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                              builder: (context) =>
-                                  Bottom()));
+                          // Navigator.of(context).push(MaterialPageRoute(
+                          //     builder: (context) =>
+                          //         const Bottom()));
+
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (context) => const Bottom()),
+                                  (Route<dynamic> route) => false);
                         },
                         icon: Icon(
                           Icons.arrow_right_alt_rounded,

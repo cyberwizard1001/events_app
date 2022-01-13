@@ -34,7 +34,7 @@ class CategoryScreen extends StatelessWidget {
 
 
       ),
-      drawer: Profile(),
+      drawer: NavDrawer(),
 
       body:   Container(
         child: Column(
@@ -42,11 +42,6 @@ class CategoryScreen extends StatelessWidget {
             Div( "Spirtual", "assets/spiritual.png", SignUpWidget()),
             Div("Technical", "assets/technical.png",SignUpWidget()),
             Div("Cultural","assets/cultural.png", SignUpWidget()),
-
-
-
-
-
           ],
         ),
 

@@ -1,12 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:events_app/screens/sign_in.dart';
+import 'package:events_app/screens/sign_up.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+class NavDrawer extends StatelessWidget {
+  const NavDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,10 @@ class Profile extends StatelessWidget {
                   ),
                 ),
               ),
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage("assets/bg.jfjf"))),
+              // decoration: BoxDecoration(),
+                  // image: DecorationImage(
+                  //     fit: BoxFit.cover,
+                  //     image: AssetImage("assets/bg.jfjf"))),
               accountName: Text(
                 "Sumithra",
                 style: GoogleFonts.poppins(
@@ -67,9 +68,9 @@ class Profile extends StatelessWidget {
               text: 'Sign Out',
               icon: Icons.logout,
               onTap: ()  {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>
-                        SignInWidget()));
+                        const SignUpWidget()));
               },
             ),
           ],

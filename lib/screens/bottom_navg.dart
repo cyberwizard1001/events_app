@@ -20,27 +20,24 @@ class _BottomState extends State<Bottom> {
   ];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
 
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentIndex,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
 
-          backgroundColor: colors.darkAccentColor,
-          selectedItemColor: colors.darkScaffoldColor.withOpacity( .80),
-          unselectedItemColor: colors.darkScaffoldColor.withOpacity( .40),
-          onTap: (index)=>setState(() {
-            currentIndex=index;
-          }),
-          items: [
-            BottomNavigationBarItem(icon:  Icon(Icons.category),label: 'Categories'),
-            BottomNavigationBarItem(icon:  Icon(Icons.upcoming), label: 'Upcoming Events')
-          ],
+        backgroundColor: colors.darkAccentColor,
+        selectedItemColor: colors.darkScaffoldColor.withOpacity( .80),
+        unselectedItemColor: colors.darkScaffoldColor.withOpacity( .40),
+        onTap: (index)=>setState(() {
+          currentIndex=index;
+        }),
+        items: [
+          BottomNavigationBarItem(icon:  Icon(Icons.category),label: 'Categories'),
+          BottomNavigationBarItem(icon:  Icon(Icons.upcoming), label: 'Upcoming Events')
+        ],
 
-        ),
-        body: screens[currentIndex],
       ),
+      body: screens[currentIndex],
     );
   }
 }

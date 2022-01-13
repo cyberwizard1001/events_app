@@ -20,7 +20,7 @@ class _UpcomingState extends State<Upcoming> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-drawer: Profile(),
+drawer: NavDrawer(),
       appBar: AppBar(title: Center(
         child: Text("Upcoming Events", style:  GoogleFonts.sourceSansPro(
             color: colors.darkPrimaryTextColor,
