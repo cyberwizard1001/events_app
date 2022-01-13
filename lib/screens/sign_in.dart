@@ -5,6 +5,8 @@ import 'package:events_app/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'bottom_navg.dart';
+
 class SignInWidget extends StatelessWidget {
   const SignInWidget({Key? key}) : super(key: key);
 
@@ -60,7 +62,7 @@ class SignInWidget extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(
                               builder: (context) =>
-                                  CategoryScreen()));
+                                  Bottom()));
                         },
                         icon: Icon(
                           Icons.arrow_right_alt_rounded,
