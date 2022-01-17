@@ -30,7 +30,7 @@ class AppBarBackButton extends StatelessWidget implements PreferredSizeWidget {
           splashRadius: 20,
           icon: Icon(
             Icons.arrow_back,
-            color: colors.darkAccentColor,
+            color: colors.accentColor,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -40,7 +40,7 @@ class AppBarBackButton extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Text(
         title,
-        style: GoogleFonts.montserrat(fontSize: 20, color: colors.darkPrimaryTextColor),
+        style: GoogleFonts.montserrat(fontSize: 20, color: colors.primaryTextColor),
       ),
     );
   }

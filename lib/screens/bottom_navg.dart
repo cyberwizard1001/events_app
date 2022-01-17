@@ -25,9 +25,9 @@ class _BottomState extends State<Bottom> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
 
-        backgroundColor: colors.darkAccentColor,
-        selectedItemColor: colors.darkScaffoldColor.withOpacity( .80),
-        unselectedItemColor: colors.darkScaffoldColor.withOpacity( .40),
+        backgroundColor: colors.accentColor,
+        selectedItemColor: colors.scaffoldColor.withOpacity( .80),
+        unselectedItemColor: colors.scaffoldColor.withOpacity( .40),
         onTap: (index)=>setState(() {
           currentIndex=index;
         }),

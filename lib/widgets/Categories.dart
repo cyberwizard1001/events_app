@@ -31,7 +31,7 @@ class Div extends StatelessWidget {
             color: Color(0xFF292D37),
             elevation: 20,
             child: InkWell(
-              splashColor: colors.darkAccentColor,
+              splashColor: colors.accentColor,
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => route));
@@ -54,7 +54,7 @@ class Div extends StatelessWidget {
                           title,
                           textAlign: TextAlign.right,
                           style: GoogleFonts.sourceSansPro(
-                              color: colors.darkAccentColor,
+                              color: colors.accentColor,
                               fontSize: 40,
                               fontWeight: FontWeight.w400),
                           maxLines: 1,

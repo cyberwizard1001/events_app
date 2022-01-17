@@ -63,7 +63,7 @@ class DataCard extends StatelessWidget {
                               maxLines: 3,
                               style: GoogleFonts.montserrat(
                                   fontSize: 25,
-                                  color: colors.darkPrimaryTextColor)),
+                                  color: colors.primaryTextColor)),
 
                         ],
                       ),
@@ -75,7 +75,7 @@ class DataCard extends StatelessWidget {
                       padding:
                           EdgeInsets.only(top: 8.0, bottom: 8.0, right: 8.0),
                       child: Icon(Icons.chevron_right,
-                          color: colors.darkPrimaryTextColor),
+                          color: colors.primaryTextColor),
                     ),
                     flex: 1,
                   ),

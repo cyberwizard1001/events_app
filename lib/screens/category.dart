@@ -21,15 +21,15 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colors.darkScaffoldColor,
+      backgroundColor: colors.scaffoldColor,
       appBar:  AppBar(title: Center(
         child: Text("Categories", style:  GoogleFonts.sourceSansPro(
-            color: colors.darkPrimaryTextColor,
+            color: colors.primaryTextColor,
             fontWeight: FontWeight.w700),
 
         ),
       ),
-        backgroundColor: colors.darkScaffoldColor,
+        backgroundColor: colors.scaffoldColor,
 
 
 

@@ -13,7 +13,7 @@ class NavDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Drawer(
       child: Material(
-        color: colors.darkScaffoldColor,
+        color: colors.scaffoldColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -32,12 +32,12 @@ class NavDrawer extends StatelessWidget {
               accountName: Text(
                 "Sumithra",
                 style: GoogleFonts.poppins(
-                    color: colors.darkPrimaryTextColor, fontSize: 18),
+                    color: colors.primaryTextColor, fontSize: 18),
               ),
               accountEmail: Text(
                 "sumisooriya@gmail.com",
                 style:
-                GoogleFonts.poppins(color: colors.darkSecondaryTextColor),
+                GoogleFonts.poppins(color: colors.secondaryTextColor),
               ),
             ),
             buildMenuItem(
@@ -87,14 +87,14 @@ class NavDrawer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
       child: ListTile(
-        selectedTileColor: colors.darkAccentColor,
+        selectedTileColor: colors.accentColor,
         leading: Icon(
           icon,
-          color: colors.darkPrimaryTextColor,
+          color: colors.primaryTextColor,
         ),
         title: Text(
           text,
-          style: GoogleFonts.poppins(color: colors.darkPrimaryTextColor),
+          style: GoogleFonts.poppins(color: colors.primaryTextColor),
         ),
         onTap: onTap,
       ),

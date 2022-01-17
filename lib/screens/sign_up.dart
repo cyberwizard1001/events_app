@@ -27,7 +27,7 @@ class SignUpWidget extends StatelessWidget {
                 Text(
                   "Sign Up",
                   style: GoogleFonts.sourceSansPro(
-                      color: colors.darkAccentColor, fontSize: 40),
+                      color: colors.accentColor, fontSize: 40),
                 ),
                 Padding(
                   padding:
@@ -73,7 +73,7 @@ class SignUpWidget extends StatelessWidget {
                           borderSide: BorderSide(
                               width: 1.0,
                               style: BorderStyle.solid,
-                              color: colors.darkAccentColor)),
+                              color: colors.accentColor)),
                     ),
                   ),
                 ),
@@ -87,12 +87,12 @@ class SignUpWidget extends StatelessWidget {
                                 builder: (context) => const Bottom()));},
                         icon: Icon(
                           Icons.arrow_right_alt_rounded,
-                          color: colors.darkScaffoldColor,
+                          color: colors.scaffoldColor,
                         ),
                         label: Text(
                           "Get OTP",
                           style: GoogleFonts.sourceSansPro(
-                              color: colors.darkButtonTextColor,
+                              color: colors.buttonTextColor,
                               fontWeight: FontWeight.w700),
                         )))
               ],

@@ -33,7 +33,7 @@ class Events_Preview extends StatelessWidget {
                 ),),
               Text(eventName, style:  GoogleFonts.sourceSansPro(
                   fontSize: 30,
-                  color: colors.darkPrimaryTextColor,
+                  color: colors.primaryTextColor,
                   fontWeight: FontWeight.w700)),
             ],
           )

@@ -23,25 +23,27 @@ class _UpcomingState extends State<Upcoming> {
 drawer: NavDrawer(),
       appBar: AppBar(title: Center(
         child: Text("Upcoming Events", style:  GoogleFonts.sourceSansPro(
-            color: colors.darkPrimaryTextColor,
+            color: colors.primaryTextColor,
             fontWeight: FontWeight.w700),
 
         ),
       ),
-        backgroundColor: colors.darkScaffoldColor,
+        backgroundColor: colors.scaffoldColor,
 
 
 
       ),
-      backgroundColor: colors.darkScaffoldColor,
-      body:Column(
-        children: [
-          Events_Preview( "Event 1", "assets/events.png", SignUpWidget()),
-          Events_Preview( "Event 2", "assets/events.png", SignUpWidget()),
-          Events_Preview( "Event 3", "assets/events.png", SignUpWidget()),
-          Events_Preview( "Event 4", "assets/events.png", SignUpWidget()),
+      backgroundColor: colors.scaffoldColor,
+      body:SingleChildScrollView(
+        child: Column(
+          children: [
+            Events_Preview( "Event 1", "assets/events.png", SignUpWidget()),
+            Events_Preview( "Event 2", "assets/events.png", SignUpWidget()),
+            Events_Preview( "Event 3", "assets/events.png", SignUpWidget()),
+            Events_Preview( "Event 4", "assets/events.png", SignUpWidget()),
 
-        ],
+          ],
+        ),
       )
 
 

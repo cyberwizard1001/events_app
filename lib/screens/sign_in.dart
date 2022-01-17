@@ -32,7 +32,7 @@ class SignInWidget extends StatelessWidget {
                 Text(
                   "Sign In",
                   style: GoogleFonts.sourceSansPro(
-                      color: colors.darkAccentColor, fontSize: 40),
+                      color: colors.accentColor, fontSize: 40),
                 ),
                 Padding(
                   padding:
@@ -71,12 +71,12 @@ class SignInWidget extends StatelessWidget {
                         },
                         icon: Icon(
                           Icons.arrow_right_alt_rounded,
-                          color: colors.darkScaffoldColor,
+                          color: colors.scaffoldColor,
                         ),
                         label: Text(
                           "Sign In",
                           style: GoogleFonts.sourceSansPro(
-                              color: colors.darkButtonTextColor,
+                              color: colors.buttonTextColor,
                               fontWeight: FontWeight.w700),
                         )))
               ],

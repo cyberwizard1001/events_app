@@ -7,7 +7,7 @@ class darkTheme {
     return ThemeData(
       fontFamily: 'sourceSansPro',
       primaryColor: Colors.white,
-      scaffoldBackgroundColor: colors.darkScaffoldColor,
+      scaffoldBackgroundColor: colors.scaffoldColor,
       textTheme: TextTheme(
         headline1: GoogleFonts.sourceSansPro(
             color: Colors.white, fontSize: 40, fontWeight: FontWeight.w200),
@@ -20,25 +20,25 @@ class darkTheme {
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: colors.textBoxBorder, width: 1.0)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: colors.darkAccentColor, width: 1.0)),
+            borderSide: BorderSide(color: colors.accentColor, width: 1.0)),
         border: OutlineInputBorder(
           borderSide: BorderSide(color: colors.textBoxBorder, width: 1.0),
         ),
         contentPadding: const EdgeInsets.all(7.0),
         labelStyle:
-            GoogleFonts.sourceSansPro(color: colors.darkPrimaryTextColor),
+            GoogleFonts.sourceSansPro(color: colors.primaryTextColor),
         floatingLabelStyle:
-            GoogleFonts.sourceSansPro(color: colors.darkPrimaryTextColor),
+            GoogleFonts.sourceSansPro(color: colors.primaryTextColor),
         hintStyle:
-            GoogleFonts.sourceSansPro(color: colors.darkPrimaryTextColor),
+            GoogleFonts.sourceSansPro(color: colors.primaryTextColor),
       ),
       buttonTheme: ButtonThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        buttonColor: colors.darkButtonTextColor
+        buttonColor: colors.buttonTextColor
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(colors.darkAccentColor),
+            backgroundColor: MaterialStateProperty.all(colors.accentColor),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),),
           )
       ),
