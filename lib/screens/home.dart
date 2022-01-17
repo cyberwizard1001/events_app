@@ -1,3 +1,4 @@
+import 'package:events_app/screens/sign_in.dart';
 import 'package:events_app/screens/sign_up.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class Home extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'Get Started',
+                        'GET STARTED',
                         style: GoogleFonts.poppins(
                             fontSize: 18,
                             color: colors.secondaryTextColor,
@@ -71,7 +72,12 @@ class Home extends StatelessWidget {
                             borderRadius: BorderRadius.circular(80.0)),
                         padding: const EdgeInsets.all(0.0),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignInWidget()));
+                      },
                       child: Container(
                           constraints: const BoxConstraints(
                               maxWidth: 300.0, minHeight: 60),
@@ -79,7 +85,7 @@ class Home extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'Login',
+                              'SIGN IN',
                               style: GoogleFonts.poppins(
                                   fontSize: 18,
                                   color: colors.tertiaryTextColor,
