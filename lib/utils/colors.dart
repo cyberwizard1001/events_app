@@ -11,6 +11,7 @@ var secondAccentColor = const Color(0xffFFD390);
 var successColor = const Color(0xffB2E081);
 var errorColor = const Color.fromARGB(255, 255, 167, 167);
 var textBoxBorder = const Color(0xff6B737A);
+var textBoxFill = const Color(0xffF2F2F2);
 var whiteColor = const Color(0xffffffff);
 
 //var darkHintColor = Colors.black87;

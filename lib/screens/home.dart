@@ -1,3 +1,4 @@
+import 'package:events_app/screens/sign_up.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,7 +17,9 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: MediaQuery.of(context).size.height*0.2,),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+              ),
               Center(
                   child: Text(
                 'Hi There!',
@@ -38,7 +41,8 @@ class Home extends StatelessWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.centerRight)),
                   child: Container(
-                    constraints: const BoxConstraints(maxWidth: 300.0, minHeight: 60),
+                    constraints:
+                        const BoxConstraints(maxWidth: 300.0, minHeight: 60),
                     alignment: Alignment.center,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -69,8 +73,8 @@ class Home extends StatelessWidget {
                       ),
                       onPressed: () {},
                       child: Container(
-                          constraints:
-                              const BoxConstraints(maxWidth: 300.0, minHeight: 60),
+                          constraints: const BoxConstraints(
+                              maxWidth: 300.0, minHeight: 60),
                           alignment: Alignment.center,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -86,9 +90,25 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                Text('New around here?',style: GoogleFonts.poppins(color: colors.primaryTextColor.withOpacity(0.7)),),
-                TextButton(onPressed: (){}, child: Text('Sign up',style: GoogleFonts.poppins(color: colors.tertiaryTextColor),))
-              ],)
+                  Text(
+                    'New around here?',
+                    style: GoogleFonts.poppins(
+                        color: colors.primaryTextColor.withOpacity(0.7)),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignUpWidget()));
+                      },
+                      child: Text(
+                        'Sign up',
+                        style: GoogleFonts.poppins(
+                            color: colors.tertiaryTextColor),
+                      ))
+                ],
+              )
             ],
           )
         ],
