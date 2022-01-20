@@ -1,6 +1,7 @@
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class darkTheme {
   static ThemeData get DarkTheme {
@@ -15,6 +16,9 @@ class darkTheme {
         bodyText2: GoogleFonts.sourceSansPro(
             color: Colors.white, fontSize: 15, fontWeight: FontWeight.w300),
       ),
+      iconTheme: IconThemeData(color: colors.accentColor),
+      appBarTheme: const AppBarTheme(
+          elevation: 0, backgroundColor: Colors.transparent, centerTitle: true),
       inputDecorationTheme: InputDecorationTheme(
         filled: false,
         enabledBorder: OutlineInputBorder(
@@ -25,23 +29,22 @@ class darkTheme {
           borderSide: BorderSide(color: colors.textBoxBorder, width: 1.0),
         ),
         contentPadding: const EdgeInsets.all(7.0),
-        labelStyle:
-            GoogleFonts.sourceSansPro(color: colors.primaryTextColor),
+        labelStyle: GoogleFonts.sourceSansPro(color: colors.primaryTextColor),
         floatingLabelStyle:
             GoogleFonts.sourceSansPro(color: colors.primaryTextColor),
-        hintStyle:
-            GoogleFonts.sourceSansPro(color: colors.primaryTextColor),
+        hintStyle: GoogleFonts.sourceSansPro(color: colors.primaryTextColor),
       ),
       buttonTheme: ButtonThemeData(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        buttonColor: colors.buttonTextColor
-      ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          buttonColor: colors.buttonTextColor),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(colors.accentColor),
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),),
-          )
-      ),
+        backgroundColor: MaterialStateProperty.all(colors.accentColor),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        ),
+      )),
     );
   }
 }

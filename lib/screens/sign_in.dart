@@ -1,19 +1,16 @@
-
 import 'package:events_app/screens/get_started.dart';
+import 'package:events_app/screens/home.dart';
 import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
 class SignInWidget extends StatelessWidget {
   const SignInWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBarBackButton('Sign in'),
@@ -32,7 +29,7 @@ class SignInWidget extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.32,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
@@ -44,46 +41,66 @@ class SignInWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),child:
-                      TextFormField(
-                          decoration: InputDecoration(
-                            label: Text('Username'),
-                            filled: true,
-                            hintText: 'Please enter your username',
-                            hintStyle: GoogleFonts.poppins(color: colors.primaryTextColor.withOpacity(0.7)),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(5)),
-                            fillColor: colors.textBoxFill,
-                            focusColor: colors.textBoxFill,
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(5)),
-                          )
-                      ),),
-                      Padding(padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),child:
-                      TextFormField(
-                        decoration: InputDecoration(
-                          label: Text('Password'),
+                      Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                        child: TextFormField(
+                            decoration: InputDecoration(
+                          label: const Text('Username'),
                           filled: true,
-                          hintText: 'Please enter your password',
-                          hintStyle: GoogleFonts.poppins(color: colors.primaryTextColor.withOpacity(0.7)),
-                          focusedBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(5)),
+                          hintText: 'Please enter your username',
+                          hintStyle: GoogleFonts.poppins(
+                              color: colors.primaryTextColor.withOpacity(0.7)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(5)),
                           fillColor: colors.textBoxFill,
                           focusColor: colors.textBoxFill,
-                          enabledBorder: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(5)),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(5)),
+                        )),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            label: const Text('Password'),
+                            filled: true,
+                            hintText: 'Please enter your password',
+                            hintStyle: GoogleFonts.poppins(
+                                color:
+                                    colors.primaryTextColor.withOpacity(0.7)),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(5)),
+                            fillColor: colors.textBoxFill,
+                            focusColor: colors.textBoxFill,
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(5)),
+                          ),
                         ),
-                      ),),
+                      ),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> GetStarted()));
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => const Home()));
                         },
                         child: Ink(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               gradient: const LinearGradient(
-                                  colors: [Color(0xffFF5B72), Color(0xffFF9779)],
+                                  colors: [
+                                    Color(0xffFF5B72),
+                                    Color(0xffFF9779)
+                                  ],
                                   begin: Alignment.topLeft,
                                   end: Alignment.centerRight)),
                           child: Container(
-                            constraints:
-                            const BoxConstraints(maxWidth: 220.0, minHeight: 40),
+                            constraints: const BoxConstraints(
+                                maxWidth: 220.0, minHeight: 40),
                             alignment: Alignment.center,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
