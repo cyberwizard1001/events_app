@@ -1,4 +1,4 @@
-import 'package:events_app/screens/home.dart';
+import 'package:events_app/screens/get_started.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:events_app/utils/themes.dart';
@@ -25,7 +25,7 @@ class _FormKeepAliveState extends State<MainApp>
   Widget build(BuildContext context) {
     super.build(context);
     return MaterialApp(
-        home: const Home(),
+        home: const GetStarted(),
         debugShowCheckedModeBanner: false,
         theme: darkTheme.DarkTheme
     );

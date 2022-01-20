@@ -1,12 +1,12 @@
-import 'package:events_app/screens/category.dart';
+
+import 'package:events_app/screens/get_started.dart';
 import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:events_app/utils/colors.dart' as colors;
-import 'package:events_app/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'bottom_navg.dart';
+
 
 class SignInWidget extends StatelessWidget {
   const SignInWidget({Key? key}) : super(key: key);
@@ -71,7 +71,9 @@ class SignInWidget extends StatelessWidget {
                         ),
                       ),),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> GetStarted()));
+                        },
                         child: Ink(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),

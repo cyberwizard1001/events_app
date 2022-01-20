@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class GetStarted extends StatelessWidget {
+  const GetStarted({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
