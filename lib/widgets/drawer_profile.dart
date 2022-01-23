@@ -43,7 +43,7 @@ class NavigationDrawer extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text(
                 'Sumithra Sudhakar',
                 textAlign: TextAlign.center,
@@ -59,7 +59,7 @@ class NavigationDrawer extends StatelessWidget {
                 textDirection: TextDirection.rtl,
 
                 child: ElevatedButton.icon(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.person_rounded,
                     size: 13,
                   ),
@@ -97,7 +97,7 @@ class NavigationDrawer extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const StarredWidget()));
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.star,
                     size: 13,
                   ),
@@ -128,8 +128,7 @@ class NavigationDrawer extends StatelessWidget {
               child:  Directionality(
                 textDirection: TextDirection.rtl,
                 child: ElevatedButton.icon(
-                  icon:  Icon(
-
+                  icon:  const Icon(
                     Icons.logout,
                     size: 13,
 
