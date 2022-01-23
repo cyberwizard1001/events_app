@@ -17,8 +17,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBarBackButton('Sign up'),
+      appBar: const AppBarBackButton('Sign up'),
       body: Stack(
         children: [
           SvgPicture.asset('assets/svg/content_background.svg'),
@@ -34,7 +33,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         height: MediaQuery.of(context).size.height * 0.32,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
@@ -48,10 +47,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                            const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                         child: TextFormField(
                             decoration: InputDecoration(
-                          label: Text('Username'),
+                          label: const Text('Username'),
                           filled: true,
                           hintText: 'Please enter your username',
                           hintStyle: GoogleFonts.poppins(
@@ -68,10 +67,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                            const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                         child: TextFormField(
                             decoration: InputDecoration(
-                          label: Text('Phone number'),
+                          label: const Text('Phone number'),
                           filled: true,
                           hintText: 'Please enter your phone number',
                           hintStyle: GoogleFonts.poppins(
@@ -88,10 +87,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                            const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                         child: TextFormField(
                           decoration: InputDecoration(
-                            label: Text('Password'),
+                            label: const Text('Password'),
                             filled: true,
                             hintText: 'Please enter your password',
                             hintStyle: GoogleFonts.poppins(

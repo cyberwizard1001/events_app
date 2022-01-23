@@ -13,7 +13,7 @@ class SignInWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       appBar: AppBarBackButton('Sign in'),
       body: Stack(
         children: [
