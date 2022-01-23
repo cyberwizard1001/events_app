@@ -15,7 +15,7 @@ class GetStarted extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          SvgPicture.asset('assets/svg/background.svg'),
+          SvgPicture.asset('assets/svg/background.svg', fit: BoxFit.fill,),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
