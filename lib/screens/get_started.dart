@@ -1,6 +1,8 @@
+import 'package:events_app/screens/features.dart';
 import 'package:events_app/screens/sign_in.dart';
 import 'package:events_app/screens/sign_up.dart';
 import 'package:events_app/utils/colors.dart' as colors;
+import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,66 +34,23 @@ class GetStarted extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
               ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Ink(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      gradient: const LinearGradient(
-                          colors: [Color(0xffFF5B72), Color(0xffFF9779)],
-                          begin: Alignment.topLeft,
-                          end: Alignment.centerRight)),
-                  child: Container(
-                    constraints:
-                        const BoxConstraints(maxWidth: 300.0, minHeight: 60),
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'GET STARTED',
-                        style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            color: colors.secondaryTextColor,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(80.0)),
-                  padding: const EdgeInsets.all(0.0),
-                ),
+              GradientButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => FeaturesPage()));
+                },
+                title: 'GET STARTED',
               ),
               Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: colors.whiteColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(80.0)),
-                        padding: const EdgeInsets.all(0.0),
-                      ),
+                  child: GradientButton(
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const SignInWidget()));
                       },
-                      child: Container(
-                          constraints: const BoxConstraints(
-                              maxWidth: 300.0, minHeight: 60),
-                          alignment: Alignment.center,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'SIGN IN',
-                              style: GoogleFonts.poppins(
-                                  fontSize: 18,
-                                  color: colors.tertiaryTextColor,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          )))),
+                      title: 'LOGIN',
+                      )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
