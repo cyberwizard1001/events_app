@@ -5,50 +5,37 @@ import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'home.dart';
 
-class Profile_Page extends StatefulWidget {
-  const Profile_Page({Key? key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  _Profile_PageState createState() => _Profile_PageState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _Profile_PageState extends State<Profile_Page> {
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarBackButton(""),
+      appBar: const AppBarBackButton("Update Profile"),
       backgroundColor: colors.scaffoldColor,
-      body: Stack(
-        children: [
-
-           Align(
-             alignment: Alignment.topCenter,
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 70,
-                  child: ClipOval(
-                    child:  SvgPicture.asset('assets/svg/female.svg'),
-                  ),
-                ),
-                IconButton(onPressed:  (){}, icon: Icon(Icons.camera_alt,size: 20,),color: colors.primaryTextColor,)
-              ],
-            ),
-          ),
-          Column(
+      body:Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
 
             children: [
 
              SingleChildScrollView(
-               physics: const ScrollPhysics(
-
-               ),
+               physics: const ScrollPhysics(),
                child: Column(
                  children: [
+                   CircleAvatar(
+                     radius: 70,
+                     child: ClipOval(
+                       child:  SvgPicture.asset('assets/svg/female.svg'),
+                     ),
+                   ),
+                   IconButton(onPressed:  (){}, icon: const Icon(Icons.camera_alt,size: 20,),color: colors.primaryTextColor,),
                    Padding(
                      padding:
                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -57,7 +44,7 @@ class _Profile_PageState extends State<Profile_Page> {
 
                          filled: true,
                          hintText:'Sumithra Sudhakar' ,
-                         suffixIcon: Icon(Icons.edit),
+                         suffixIcon: const Icon(Icons.edit),
 
                          hintStyle: GoogleFonts.poppins(
                              color:
@@ -81,7 +68,7 @@ class _Profile_PageState extends State<Profile_Page> {
 
                          filled: true,
                          hintText:'1234567890' ,
-                         suffixIcon: Icon(Icons.edit),
+                         suffixIcon: const Icon(Icons.edit),
                          hintStyle: GoogleFonts.poppins(
                              color:
                              colors.primaryTextColor.withOpacity(0.7)),
@@ -104,7 +91,7 @@ class _Profile_PageState extends State<Profile_Page> {
 
                          filled: true,
                          hintText:'xyz@gmail.com' ,
-                         suffixIcon: Icon(Icons.edit),
+                         suffixIcon: const Icon(Icons.edit),
                          hintStyle: GoogleFonts.poppins(
                              color:
                              colors.primaryTextColor.withOpacity(0.7)),
@@ -165,8 +152,7 @@ class _Profile_PageState extends State<Profile_Page> {
 
             ],
           )
-        ],
-      ),
-    );
+        );
+
   }
 }

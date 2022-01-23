@@ -67,7 +67,7 @@ class Drawer_bar extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Profile_Page()));
+                        MaterialPageRoute(builder: (context) => const ProfilePage()));
                   },
                   label: Padding(
                     padding:  const EdgeInsets.fromLTRB( 8, 8, 100, 8),
