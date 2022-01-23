@@ -45,6 +45,7 @@ class GetStarted extends StatelessWidget {
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         primary: colors.whiteColor,
+
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(80.0)),
                         padding: const EdgeInsets.all(0.0),

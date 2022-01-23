@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // backgroundColor: colors.accentColor,backgroundColor: colors.accentColor,
+        iconTheme: IconThemeData(color: colors.accentColor),
         centerTitle: true,
         title: Text(
           "Home",
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
         ),
 
       ),
-      drawer: NavigationDrawer(),
+      drawer: const NavigationDrawer(),
     );
   }
 }
