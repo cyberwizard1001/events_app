@@ -1,16 +1,14 @@
-import 'package:events_app/screens/home.dart';
+
 import 'package:events_app/screens/profile_page.dart';
 import 'package:events_app/screens/sign_in.dart';
 import 'package:events_app/screens/starred_events.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Drawer_bar extends StatelessWidget {
-  const Drawer_bar({Key? key}) : super(key: key);
+class NavigationDrawer extends StatelessWidget {
+  const NavigationDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:events_app/widgets/Drawer_Profile.dart';
+import 'package:events_app/widgets/drawer_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
         ),
 
       ),
-      drawer: Drawer_bar(),
+      drawer: NavigationDrawer(),
     );
   }
 }

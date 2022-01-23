@@ -14,7 +14,7 @@ class SignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: AppBarBackButton('Sign in'),
+      appBar: const AppBarBackButton('Sign in'),
       body: Stack(
         children: [
           SvgPicture.asset('assets/svg/content_background.svg'),
