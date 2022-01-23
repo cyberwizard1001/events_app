@@ -36,21 +36,39 @@ class GetStarted extends StatelessWidget {
               ),
               GradientButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => FeaturesPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const FeaturesPage()));
                 },
                 title: 'GET STARTED',
               ),
               Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: GradientButton(
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: colors.whiteColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(80.0)),
+                        padding: const EdgeInsets.all(0.0),
+                      ),
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const SignInWidget()));
                       },
-                      title: 'LOGIN',
-                      )),
+                      child: Container(
+                          constraints: const BoxConstraints(
+                              maxWidth: 300.0, minHeight: 60),
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'SIGN IN',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  color: colors.tertiaryTextColor,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          )))),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

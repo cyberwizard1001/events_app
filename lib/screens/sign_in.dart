@@ -2,6 +2,7 @@ import 'package:events_app/screens/get_started.dart';
 import 'package:events_app/screens/home.dart';
 import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:events_app/utils/colors.dart' as colors;
+import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,42 +84,12 @@ class SignInWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      ElevatedButton(
+                      GradientButton(
                         onPressed: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => const Home()));
                         },
-                        child: Ink(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              gradient: const LinearGradient(
-                                  colors: [
-                                    Color(0xffFF5B72),
-                                    Color(0xffFF9779)
-                                  ],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.centerRight)),
-                          child: Container(
-                            constraints: const BoxConstraints(
-                                maxWidth: 220.0, minHeight: 40),
-                            alignment: Alignment.center,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'SIGN IN',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    color: colors.secondaryTextColor,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(80.0)),
-                          padding: const EdgeInsets.all(0.0),
-                        ),
+                        title: 'SIGN IN',
                       ),
                     ],
                   ))
