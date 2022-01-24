@@ -1,5 +1,5 @@
+import 'package:events_app/screens/get_started.dart';
 import 'package:events_app/screens/profile_page.dart';
-import 'package:events_app/screens/sign_in.dart';
 import 'package:events_app/screens/starred_events.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
@@ -89,7 +89,7 @@ class NavigationDrawer extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                          builder: (context) => const SignInWidget()),
+                          builder: (context) => const GetStarted()),
                       (Route<dynamic> route) => false);
                 }),
           ],
