@@ -203,7 +203,7 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                         padding: EdgeInsets.zero,
                         splashRadius: 20,
                         icon:  Icon(
-                          isSelected ? Icons.favorite : Icons.favorite_border,
+                          isSelected ? Icons.star : Icons.star_border,
                           size: 36,
                         ),
                         onPressed: () {
