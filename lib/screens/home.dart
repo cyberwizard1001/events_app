@@ -1,4 +1,4 @@
-import 'package:events_app/widgets/drawer_profile.dart';
+import 'package:events_app/widgets/navigation_drawer.dart';
 import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
