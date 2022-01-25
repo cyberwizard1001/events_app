@@ -31,9 +31,9 @@ class NavigationDrawer extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Align(
-                      alignment: Alignment.topLeft,
+                      alignment: Alignment.centerLeft,
                       child: CircleAvatar(
-                        radius: 70,
+                        radius: 40,
                         child: ClipOval(
                           child: SvgPicture.asset('assets/svg/female.svg'),
                         ),

@@ -1,3 +1,4 @@
+import 'package:events_app/screens/events_page.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:events_app/widgets/gradient_button.dart';
@@ -21,102 +22,101 @@ class _SignUpWidgetState extends State<SignUpWidget> {
       body: Stack(
         children: [
           SvgPicture.asset('assets/svg/content_background.svg'),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SingleChildScrollView(
-                  physics: const ScrollPhysics(),
-                  child: Column(
+              Column(
                     children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.32,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            'Sign up',
-                            style: GoogleFonts.poppins(
-                                color: colors.primaryTextColor,
-                                fontSize: 35,
-                                fontWeight: FontWeight.w500),
-                          ),
+                      Expanded(flex: 2,child: Container()),
+                      Expanded(
+                        flex: 4,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  'Sign up',
+                                  style: GoogleFonts.poppins(
+                                      color: colors.primaryTextColor,
+                                      fontSize: 35,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                              child: TextFormField(
+                                  decoration: InputDecoration(
+                                    label: const Text('Name'),
+                                    filled: true,
+                                    hintText: 'Please enter your name',
+                                    hintStyle: GoogleFonts.poppins(
+                                        color: colors.primaryTextColor.withOpacity(0.7)),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    fillColor: colors.textBoxFill,
+                                    focusColor: colors.textBoxFill,
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(5)),
+                                  )),
+                            ),
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                              child: TextFormField(
+                                  decoration: InputDecoration(
+                                    label: const Text('Phone number'),
+                                    filled: true,
+                                    hintText: 'Please enter your phone number',
+                                    hintStyle: GoogleFonts.poppins(
+                                        color: colors.primaryTextColor.withOpacity(0.7)),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    fillColor: colors.textBoxFill,
+                                    focusColor: colors.textBoxFill,
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(5)),
+                                  )),
+                            ),
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  label: const Text('Password'),
+                                  filled: true,
+                                  hintText: 'Please enter your password',
+                                  hintStyle: GoogleFonts.poppins(
+                                      color:
+                                      colors.primaryTextColor.withOpacity(0.7)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  fillColor: colors.textBoxFill,
+                                  focusColor: colors.textBoxFill,
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(5)),
+                                ),
+                              ),
+                            ),
+                            GradientButton(
+                                onPressed: () {
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>EventsPage()));
+                                },
+                                title: 'SIGN UP'
+                            )
+                          ],
                         ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                        child: TextFormField(
-                            decoration: InputDecoration(
-                          label: const Text('Username'),
-                          filled: true,
-                          hintText: 'Please enter your username',
-                          hintStyle: GoogleFonts.poppins(
-                              color: colors.primaryTextColor.withOpacity(0.7)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(5)),
-                          fillColor: colors.textBoxFill,
-                          focusColor: colors.textBoxFill,
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(5)),
-                        )),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                        child: TextFormField(
-                            decoration: InputDecoration(
-                          label: const Text('Phone number'),
-                          filled: true,
-                          hintText: 'Please enter your phone number',
-                          hintStyle: GoogleFonts.poppins(
-                              color: colors.primaryTextColor.withOpacity(0.7)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(5)),
-                          fillColor: colors.textBoxFill,
-                          focusColor: colors.textBoxFill,
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(5)),
-                        )),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            label: const Text('Password'),
-                            filled: true,
-                            hintText: 'Please enter your password',
-                            hintStyle: GoogleFonts.poppins(
-                                color:
-                                    colors.primaryTextColor.withOpacity(0.7)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(5)),
-                            fillColor: colors.textBoxFill,
-                            focusColor: colors.textBoxFill,
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(5)),
-                          ),
-                        ),
-                      ),
-                      GradientButton(
-                        onPressed: () {},
-                        title: 'SIGN UP'
                       )
                     ],
-                  ))
+                  )
             ],
           )
-        ],
-      ),
     );
   }
 }
