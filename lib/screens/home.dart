@@ -33,7 +33,9 @@ class _HomeState extends State<Home> {
           children: [
             _horizontalListView(context, "Upcoming Events", listUpcoming),
             _horizontalListView(context, "RSVP'd Events", listRSVP),
-            _dropDown(["ALL EVENTS", "STARRED EVENTS", "RSVP'D EVENTS"], chosenOption, (newValue) {
+            _dropDown(
+                ["ALL EVENTS", "STARRED EVENTS", "RSVP'D EVENTS"], chosenOption,
+                (newValue) {
               setState(() {
                 chosenOption = newValue;
               });
@@ -43,7 +45,10 @@ class _HomeState extends State<Home> {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: allEventsList.length,
               itemBuilder: (_, i) {
-                return _mainCard("${allEventsList[i]} ${i+1}", () {}, context);
+                return _MainCardWidget(
+                    "${allEventsList[i]} ${i + 1}", () {}, context, (bool) {
+                  print(bool);
+                });
               },
             )
           ],
@@ -136,73 +141,126 @@ Widget _horizontalWidgetCard(cardTitle, onTap) {
       ));
 }
 
-Widget _mainCard(cardTitle, onTap, context) {
-  return SizedBox(
-    height: MediaQuery.of(context).size.height * 0.3,
-    width: double.infinity,
-    child: Padding(
-        padding: const EdgeInsets.all(5),
-        child: Card(
-          clipBehavior: Clip.antiAlias,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0),
-          ),
-          semanticContainer: true,
-          child: Stack(
-            children: [
-              Ink.image(
-                  image: const AssetImage(
-                    "assets/bg.png",
-                  ),
-                  child: InkWell(
-                    onTap: onTap,
-                  ),
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.cover),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Text(
-                          cardTitle,
-                          style: GoogleFonts.poppins(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: ElevatedButton.icon(
-                            onPressed: onTap,
-                            style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                            label: Text(
-                              "Know More",
-                              style: GoogleFonts.poppins(
-                                color: colors.secondaryTextColor,
-                              ),
+class _MainCardWidget extends StatefulWidget {
+  const _MainCardWidget(
+      this.cardTitle, this.onTap, this.context, this.isStarred,
+      {Key? key})
+      : super(key: key);
+  final String cardTitle;
+  final VoidCallback onTap;
+  final Function(bool) isStarred;
+  final BuildContext context;
+
+  @override
+  _MainCardWidgetState createState() => _MainCardWidgetState();
+}
+
+class _MainCardWidgetState extends State<_MainCardWidget> {
+  bool isSelected = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.3,
+      width: double.infinity,
+      child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Card(
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            semanticContainer: true,
+            child: Stack(
+              children: [
+                Ink.image(
+                    image: const AssetImage(
+                      "assets/bg.png",
+                    ),
+                    child: InkWell(
+                      onTap: widget.onTap,
+                    ),
+                    width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.cover),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(173, 255, 199, 252),
+                              blurRadius: 10
                             ),
-                            icon: const Icon(Icons.arrow_forward, size: 18),
-                          ))
-                    ],
+                          ]),
+                      child: IconButton(
+                        color: isSelected
+                            ? const Color.fromARGB(255, 255, 0, 119)
+                            : Colors.white,
+                        padding: EdgeInsets.zero,
+                        splashRadius: 20,
+                        icon:  Icon(
+                          isSelected ? Icons.favorite : Icons.favorite_border,
+                          size: 36,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            isSelected = !isSelected;
+                          });
+                          widget.isStarred(isSelected);
+                        },
+                      ),
+                    ),
                   ),
                 ),
-              )
-            ],
-          ),
-          elevation: 5,
-          color: Colors.green,
-        )),
-  );
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: Text(
+                            widget.cardTitle,
+                            style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Expanded(
+                            flex: 2,
+                            child: ElevatedButton.icon(
+                              onPressed: widget.onTap,
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20))),
+                              label: Text(
+                                "Know More",
+                                style: GoogleFonts.poppins(
+                                  color: colors.secondaryTextColor,
+                                ),
+                              ),
+                              icon: const Icon(Icons.arrow_forward, size: 18),
+                            ))
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+            elevation: 5,
+            color: Colors.green,
+          )),
+    );
+  }
 }
 
 Widget _dropDown(listOfOptions, chosenOption, onChanged) {
