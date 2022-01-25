@@ -12,6 +12,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  //TODO: Update lists with model
   final listUpcoming = ["EVENT", "EVENT", "EVENT", "EVENT", "EVENT", "EVENT"];
   final listRSVP = ["EVENT", "EVENT", "EVENT", "EVENT", "EVENT", "EVENT"];
   final allEventsList = ["Event", "Event", "Event", "Event", "Event", "Event"];
@@ -23,35 +25,45 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
+  Future<void> _refreshRandomNumbers() => Future.delayed(const Duration(seconds: 2), () {
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _horizontalListView(context, "Upcoming Events", listUpcoming),
-            _horizontalListView(context, "RSVP'd Events", listRSVP),
-            _dropDown(
-                ["ALL EVENTS", "STARRED EVENTS", "RSVP'D EVENTS"], chosenOption,
-                (newValue) {
-              setState(() {
-                chosenOption = newValue;
-              });
-            }),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: allEventsList.length,
-              itemBuilder: (_, i) {
-                return _MainCardWidget(
-                    "${allEventsList[i]} ${i + 1}", () {}, context, (bool) {
-                  print(bool);
+      body: RefreshIndicator(
+        color: colors.accentColor,
+        onRefresh: () {
+          //TODO: Refresh page on pull
+          return _refreshRandomNumbers();
+        },
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _horizontalListView(context, "Upcoming Events", listUpcoming),
+              _horizontalListView(context, "RSVP'd Events", listRSVP),
+              _dropDown(["ALL EVENTS", "STARRED EVENTS", "RSVP'D EVENTS"],
+                  chosenOption, (newValue) {
+                setState(() {
+                  chosenOption = newValue;
                 });
-              },
-            )
-          ],
+              }),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: allEventsList.length,
+                itemBuilder: (_, i) {
+                  return _MainCardWidget(
+                      "${allEventsList[i]} ${i + 1}", () {}, context, (bool) {
+                    print(bool);
+                  });
+                },
+              )
+            ],
+          ),
         ),
       ),
       appBar: AppBar(
@@ -192,9 +204,8 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: Color.fromARGB(173, 255, 199, 252),
-                              blurRadius: 10
-                            ),
+                                color: Color.fromARGB(173, 255, 199, 252),
+                                blurRadius: 10),
                           ]),
                       child: IconButton(
                         color: isSelected
@@ -202,7 +213,7 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                             : Colors.white,
                         padding: EdgeInsets.zero,
                         splashRadius: 20,
-                        icon:  Icon(
+                        icon: Icon(
                           isSelected ? Icons.star : Icons.star_border,
                           size: 36,
                         ),
@@ -236,19 +247,19 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                         ),
                         Expanded(
                             flex: 2,
-                            child: ElevatedButton.icon(
-                              onPressed: widget.onTap,
-                              style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20))),
-                              label: Text(
-                                "Know More",
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 5),
+                              decoration: BoxDecoration(
+                                  color: colors.accentColor,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(20))),
+                              child: Text(
+                                "ON: 7-2-2021",
+                                textAlign: TextAlign.center,
                                 style: GoogleFonts.poppins(
-                                  color: colors.secondaryTextColor,
+                                  color: colors.whiteColor,
                                 ),
                               ),
-                              icon: const Icon(Icons.arrow_forward, size: 18),
                             ))
                       ],
                     ),

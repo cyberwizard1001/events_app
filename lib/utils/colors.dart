@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-var scaffoldColor = const Color(0xffFAF6EF);
+var scaffoldColor = const Color(0xffffffff);
 var accentColor = const Color(0xffFF5B72);
 var primaryTextColor = const Color(0xff454545);
 var secondaryTextColor = const Color(0xffFAF6EF);

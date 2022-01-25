@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:events_app/utils/themes.dart';
 
+//TODO: Add ScrollViews to sign_in and sign_up pages and
+//TODO: Change SVG colors to white
+//TODO: Add more white space to the home page
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
