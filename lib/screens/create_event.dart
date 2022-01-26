@@ -11,8 +11,8 @@ class CreateEvent extends StatefulWidget {
 }
 
 class _CreateEventState extends State<CreateEvent> {
-  String dropdownValue = 'Choose category';
-
+  String? value = 'Choose category';
+  final items = ['Choose category', 'Cultural', 'Spiritual', 'Technical'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,23 +72,27 @@ class _CreateEventState extends State<CreateEvent> {
                     ),
                   ),
 
-                  //             Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  //             child: DropdownButton(
-                  //               icon: Icon(Icons.keyboard_arrow_down_outlined),
-                  //               value: dropdownValue,
-                  //               onChanged: (String? newValue) {
-                  //                 setState(() {
-                  //                   dropdownValue = newValue!;
-                  //                 });
-                  //               },
-                  //               items:    <String>['Choose Category', 'Spiritual', 'Cultural']
-                  //     .map<DropdownMenuItem<String>>((String value) {
-                  // return DropdownMenuItem<String>(
-                  // value: value,
-                  // child: Text(value),
-                  // );
-                  // }).toList(),
-                  //             ),)
+                 Padding(
+                   padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                   child: Container(
+                     padding: EdgeInsets.symmetric(horizontal: 12,vertical: 4),
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(5),
+                       color: colors.textBoxFill
+                     ),
+                     child:  DropdownButtonHideUnderline(
+                       child: DropdownButton<String>(
+                         value: value,
+                         iconSize: 36,
+                         isExpanded: true,
+                         items: items.map(buildMenuItem).toList(),
+                         onChanged: (value) => setState(() {
+                           this.value= value;
+                         }),
+                       ),
+                     ),
+                   ),
+                 ),
 
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
@@ -229,3 +233,11 @@ class _CreateEventState extends State<CreateEvent> {
     );
   }
 }
+
+DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
+    value: item,
+    child: Text(item,
+      style:  GoogleFonts.poppins(
+          color: colors.primaryTextColor.withOpacity(0.7))
+    )
+);
