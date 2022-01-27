@@ -3,9 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 
 class GradientButton extends StatefulWidget {
-  GradientButton({Key? key,required this.onPressed,required this.title}) : super(key: key);
+  GradientButton({Key? key,required this.startingColor, required this.endingColor, required this.onPressed,required this.title}) : super(key: key);
 
   final Function()? onPressed;
+  final Color startingColor;
+  final Color endingColor;
   final String title;
 
   @override
@@ -20,20 +22,20 @@ class _GradientButtonState extends State<GradientButton> {
       child: Ink(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            gradient: const LinearGradient(
-                colors: [Color(0xffFF5B72), Color(0xffFF9779)],
+            gradient: LinearGradient(
+                colors: [widget.startingColor, widget.endingColor],
                 begin: Alignment.topLeft,
                 end: Alignment.centerRight)),
         child: Container(
           constraints:
-          const BoxConstraints(maxWidth: 300.0, minHeight: 60),
+          const BoxConstraints(maxWidth: 300.0, minHeight: 40, maxHeight: 50),
           alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               widget.title,
               style: GoogleFonts.poppins(
-                  fontSize: 18,
+                  fontSize: 16,
                   color: colors.secondaryTextColor,
                   fontWeight: FontWeight.w600),
             ),

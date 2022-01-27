@@ -88,6 +88,8 @@ class SignInWidget extends StatelessWidget {
                                     MaterialPageRoute(builder: (context) => const Home()));
                               },
                               title: 'SIGN IN',
+                              startingColor: const Color(0xff1D5AFF),
+                              endingColor: const Color(0xff8F48FF),
                             ),
                           ],
                         ),

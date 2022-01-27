@@ -108,7 +108,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 onPressed: () {
                                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>EventsPage()));
                                 },
-                                title: 'SIGN UP'
+                                title: 'SIGN UP',
+                                startingColor: const Color(0xff1D5AFF),
+                                endingColor: const Color(0xff8F48FF),
                             )
                           ],
                         ),
