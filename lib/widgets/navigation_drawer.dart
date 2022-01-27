@@ -17,42 +17,41 @@ class NavigationDrawer extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [colors.accentColor, colors.secondAccentColor],
-              )),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: CircleAvatar(
-                        radius: 40,
-                        child: ClipOval(
-                          child: SvgPicture.asset('assets/svg/female.svg'),
-                        ),
+
+            UserAccountsDrawerHeader(
+                currentAccountPicture: CircleAvatar(
+                  radius: 50,
+                  child: ClipOval(
+                      child:  SvgPicture.asset('assets/svg/female.svg')
+
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [colors.accentColor, colors.secondAccentColor],
+                    )
+                ),
+                accountName: Text(
+                  'Sumithra Sudhakar',
+
+                  style: GoogleFonts.poppins(
+
+                      fontSize: 16,
+                      color: colors.primaryTextColor,
+                      fontWeight: FontWeight.w600),
+                ),
+                accountEmail: Text(
+                  "sumisooriya@gmail.com",
+                  style: GoogleFonts.poppins(
+
+                      fontSize: 12,
+                      color: colors.primaryTextColor,
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      'Sumithra Sudhakar',
-                      style: GoogleFonts.poppins(
-                          fontSize: 20,
-                          color: colors.primaryTextColor,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ],
-              ),
+                )
             ),
+
             buildDrawerItem(
                 icon: Icons.person_rounded,
                 text: "Profile",
