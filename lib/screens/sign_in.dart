@@ -14,18 +14,19 @@ class SignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: const AppBarBackButton('Sign in'),
       body: Stack(
         children: [
-          SvgPicture.asset('assets/svg/content_background.svg'),
+          SvgPicture.asset('assets/svg/opening_background.svg'),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-                      Expanded(child: Container(),flex: 2,),
+                      Expanded(child: Container(), flex: 1,),
+                      Expanded(child: SvgPicture.asset('assets/svg/login_image.svg'),flex: 2,),
                       Expanded(
-                        flex: 3,
+                        flex: 4,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -33,21 +34,20 @@ class SignInWidget extends StatelessWidget {
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   'Sign in',
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.raleway(
                                       color: colors.primaryTextColor,
                                       fontSize: 35,
-                                      fontWeight: FontWeight.w500),
                                 ),
                               ),
-                            ),
+                            ),),
                             Padding(
                               padding:
-                              const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                              const EdgeInsets.only(left: 30,right: 30, bottom: 30, top: 30),
                               child: TextFormField(
                                   decoration: InputDecoration(
-                                    label: const Text('Username'),
+                                    label: Text('PHONE NUMBER',style: GoogleFonts.raleway(color: colors.textBoxTextColor,fontSize: 12),),
                                     filled: true,
-                                    hintText: 'Please enter your username',
+                                    hintText: 'Please enter your phone number',
                                     hintStyle: GoogleFonts.poppins(
                                         color: colors.primaryTextColor.withOpacity(0.7)),
                                     focusedBorder: OutlineInputBorder(
@@ -60,28 +60,6 @@ class SignInWidget extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(5)),
                                   )),
                             ),
-                            Padding(
-                              padding:
-                              const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                  label: const Text('Password'),
-                                  filled: true,
-                                  hintText: 'Please enter your password',
-                                  hintStyle: GoogleFonts.poppins(
-                                      color:
-                                      colors.primaryTextColor.withOpacity(0.7)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  fillColor: colors.textBoxFill,
-                                  focusColor: colors.textBoxFill,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(5)),
-                                ),
-                              ),
-                            ),
                             GradientButton(
                               onPressed: () {
                                 Navigator.push(context,
@@ -93,7 +71,8 @@ class SignInWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
+              Expanded(child: Container(), flex: 1,)
                     ],
                   )
             ],

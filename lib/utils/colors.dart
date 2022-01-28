@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
-var scaffoldColor = const Color(0xffffffff);
+var scaffoldColor = const Color(0xff210957);
 var accentColor = const Color(0xffFF5B72);
 var primaryTextColor = const Color(0xffffffff);
 var secondaryTextColor = const Color(0xffFAF6EF);
 var tertiaryTextColor = const Color(0xff7F80E9);
-var darkTextBoxColor = const Color(0xffdddee5);
 var buttonTextColor = const Color(0xffFAF6EF);
 var secondAccentColor = const Color(0xffFFD390);
 var successColor = const Color(0xffB2E081);
 var errorColor = const Color.fromARGB(255, 255, 167, 167);
 var textBoxBorder = const Color(0xff6B737A);
-var textBoxFill = const Color(0xffF2F2F2);
+var textBoxFill = const Color(0xff322157);
 var whiteColor = const Color(0xffffffff);
+var textBoxTextColor = const Color(0xffB8B2B2);
+var inactiveCardColor = const Color(0xff0C0025);
+var activeCardColor = const Color(0xff6038B5);
+var dropdownColor = const Color(0xff5F439A);
 
 //var darkHintColor = Colors.black87;
 

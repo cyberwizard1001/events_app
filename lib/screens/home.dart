@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
                   return _MainCardWidget(
                       "${allEventsList[i]} ${i + 1}", () {}, context, (bool) {
                     print(bool);
-                  });
+                  }, "January ${20+i} 2022",true);
                 },
               )
             ],
@@ -82,13 +82,13 @@ class _HomeState extends State<Home> {
 
 Widget _horizontalListView(context, title, List list) {
   return SizedBox(
-    height: MediaQuery.of(context).size.height * 0.25,
+    height: MediaQuery.of(context).size.height * 0.235,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 8, top: 10),
+          padding: const EdgeInsets.only(left: 15, top: 10,bottom: 10),
           child: Text(
             title,
             style: GoogleFonts.poppins(
@@ -101,10 +101,11 @@ Widget _horizontalListView(context, title, List list) {
           child: PageView.builder(
             itemCount: list.length,
             padEnds: false,
-            controller: PageController(viewportFraction: 0.8),
+            controller: PageController(viewportFraction: 0.68),
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
-              return _horizontalWidgetCard("Event ${index + 1}", () {});
+              return _horizontalWidgetCard("Event ${index + 1}", "January ${index+20} 2022", () {}, false);
+              //TODO: Replace with inFocus variable
             },
           ),
         )
@@ -113,55 +114,65 @@ Widget _horizontalListView(context, title, List list) {
   );
 }
 
-Widget _horizontalWidgetCard(cardTitle, onTap) {
+Widget _horizontalWidgetCard(cardTitle, cardDate, onTap,inFocus) {
   return Padding(
-      padding: const EdgeInsets.only(bottom: 5, left: 5),
+      padding: const EdgeInsets.only(bottom: 20, left: 15),
       child: Card(
+        color: inFocus==true ? colors.activeCardColor : colors.inactiveCardColor ,
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         semanticContainer: true,
         child: Stack(
           children: [
-            Ink.image(
-                image: const AssetImage(
-                  "assets/bg.png",
-                ),
-                child: InkWell(
+                InkWell(
                   onTap: onTap,
                 ),
-                width: double.infinity,
-                fit: BoxFit.fitWidth),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Text(
-                  cardTitle,
-                  style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold),
+           Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //TODO: Add icon based on event category
+                    Text(
+                      cardTitle,
+                      style: GoogleFonts.raleway(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5.0),
+                      child: Text(
+                        cardDate,
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500)
+                      ),
+                    )
+                  ],
                 ),
               ),
-            )
           ],
         ),
         elevation: 5,
-        color: Colors.green,
       ));
 }
 
 class _MainCardWidget extends StatefulWidget {
   const _MainCardWidget(
-      this.cardTitle, this.onTap, this.context, this.isStarred,
+      this.cardTitle, this.onTap, this.context, this.isStarred, this.cardDate,this.onFocus,
       {Key? key})
       : super(key: key);
   final String cardTitle;
+  final String cardDate;
   final VoidCallback onTap;
   final Function(bool) isStarred;
   final BuildContext context;
+  final bool onFocus;
 
   @override
   _MainCardWidgetState createState() => _MainCardWidgetState();
@@ -170,52 +181,46 @@ class _MainCardWidget extends StatefulWidget {
 class _MainCardWidgetState extends State<_MainCardWidget> {
   bool isSelected = false;
 
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.23,
       width: double.infinity,
       child: Padding(
-          padding: const EdgeInsets.all(5),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Card(
             clipBehavior: Clip.antiAlias,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0),
+              borderRadius: BorderRadius.circular(10.0),
             ),
             semanticContainer: true,
             child: Stack(
               children: [
-                Ink.image(
-                    image: const AssetImage(
-                      "assets/bg.png",
-                    ),
-                    child: InkWell(
+                InkWell(
                       onTap: widget.onTap,
                     ),
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover),
                 Align(
-                  alignment: Alignment.topRight,
+                  alignment: Alignment.topLeft,
                   child: Padding(
-                    padding: const EdgeInsets.all(4),
+                    padding: const EdgeInsets.all(5),
                     child: Container(
                       decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
                                 color: Color.fromARGB(173, 255, 199, 252),
-                                blurRadius: 10),
+                                blurRadius: 30),
                           ]),
                       child: IconButton(
                         color: isSelected
                             ? const Color.fromARGB(255, 255, 0, 119)
                             : Colors.white,
                         padding: EdgeInsets.zero,
-                        splashRadius: 20,
+                        splashRadius: 15,
                         icon: Icon(
                           isSelected ? Icons.star : Icons.star_border,
-                          size: 36,
+                          size: 25,
                         ),
                         onPressed: () {
                           setState(() {
@@ -231,44 +236,36 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                   alignment: Alignment.bottomLeft,
                   child: Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          flex: 3,
-                          child: Text(
+                        Text(
                             widget.cardTitle,
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.raleway(
                                 color: Colors.white,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold),
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500),
                           ),
-                        ),
-                        Expanded(
-                            flex: 2,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(vertical: 5),
-                              decoration: BoxDecoration(
-                                  color: colors.accentColor,
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(20))),
-                              child: Text(
-                                "ON: 7-2-2021",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.poppins(
-                                  color: colors.whiteColor,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 6.0),
+                          child: Text(
+                                  widget.cardDate,
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.poppins(
+                                    color: colors.whiteColor,
+                                  ),
                                 ),
-                              ),
-                            ))
+                        ),
                       ],
                     ),
                   ),
                 )
               ],
             ),
-            elevation: 5,
-            color: Colors.green,
+            elevation: 10,
+            color: widget.onFocus ? colors.inactiveCardColor : colors.activeCardColor,
           )),
     );
   }
@@ -276,15 +273,16 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
 
 Widget _dropDown(listOfOptions, chosenOption, onChanged) {
   return Padding(
-    padding: const EdgeInsets.all(5),
+    padding: const EdgeInsets.all(10),
     child: Card(
+      //TODO: Reduce the height of the card
       elevation: 5,
-      color: colors.primaryTextColor,
+      color: colors.dropdownColor,
       child: DropdownButtonHideUnderline(
         child: ButtonTheme(
           alignedDropdown: true,
           child: DropdownButton<dynamic>(
-            dropdownColor: colors.primaryTextColor,
+            dropdownColor: colors.dropdownColor,
             icon: Padding(
               padding: const EdgeInsets.only(right: 5),
               child: Icon(
