@@ -40,7 +40,7 @@ class _FeaturesPageState extends State<FeaturesPage> {
       (index) => Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: colors.scaffoldColor,
+          color: Colors.transparent,
         ),
         margin: const EdgeInsets.only(top: 40, left: 10, right: 10),
         child: Padding(
@@ -77,50 +77,53 @@ class _FeaturesPageState extends State<FeaturesPage> {
       ),
     );
     return Scaffold(
-      appBar: const AppBarBackButton('Get Started'),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              flex: 4,
-              child: PageView.builder(
-                controller: controller,
-                // itemCount: pages.length,
-                itemBuilder: (_, index) {
-                  return pages[index % pages.length];
-                },
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: SmoothPageIndicator(
-                controller: controller,
-                count: pages.length,
-                effect: const JumpingDotEffect(
-                  dotHeight: 10,
-                  dotWidth: 10,
-                  jumpScale: .7,
-                  verticalOffset: 15,
+      body: Stack(
+        children:[
+          SvgPicture.asset('assets/svg/background.svg'),
+          Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                flex: 4,
+                child: PageView.builder(
+                  controller: controller,
+                  // itemCount: pages.length,
+                  itemBuilder: (_, index) {
+                    return pages[index % pages.length];
+                  },
                 ),
               ),
-            ),
-            Expanded(
-                child: UnconstrainedBox(
-                    child: GradientButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SignUpWidget()));
-                        },
-                        startingColor: Color(0xff1D5AFF),
-                        endingColor: Color(0xff8F48FF),
-                        title: 'SIGN UP')))
-          ],
-        ),
+              Expanded(
+                flex: 1,
+                child: SmoothPageIndicator(
+                  controller: controller,
+                  count: pages.length,
+                  effect: const JumpingDotEffect(
+                    dotHeight: 10,
+                    dotWidth: 10,
+                    jumpScale: .7,
+                    verticalOffset: 15,
+                  ),
+                ),
+              ),
+              Expanded(
+                  child: UnconstrainedBox(
+                      child: GradientButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignUpWidget()));
+                          },
+                          startingColor: Color(0xff1D5AFF),
+                          endingColor: Color(0xff8F48FF),
+                          title: 'SIGN UP')))
+            ],
+          ),
+        ),]
       ),
     );
   }
