@@ -210,7 +210,7 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                           boxShadow: [
                             BoxShadow(
                                 color: Color.fromARGB(173, 255, 199, 252),
-                                blurRadius: 30),
+                                blurRadius: 20),
                           ]),
                       child: IconButton(
                         color: isSelected
