@@ -55,6 +55,7 @@ class SignInWidget extends StatelessWidget {
                               padding: const EdgeInsets.only(
                                   left: 30, right: 30, bottom: 30, top: 30),
                               child: TextFormField(
+                                style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                                   decoration: InputDecoration(
                                 label: Text(
                                   'PHONE NUMBER',

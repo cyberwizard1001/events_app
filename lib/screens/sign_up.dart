@@ -55,6 +55,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 padding: const EdgeInsets.only(
                                     left: 40, right: 40, top: 15, bottom: 10),
                                 child: TextFormField(
+                                    style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                                     decoration: InputDecoration(
                                   label: Text('NAME',
                                       style: GoogleFonts.raleway(
@@ -79,6 +80,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 40, vertical: 10),
                                 child: TextFormField(
+                                    style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                                     decoration: InputDecoration(
                                   label: Text(
                                     'PHONE NUMBER',

@@ -29,12 +29,13 @@ class _CreateEventState extends State<CreateEvent> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         label: const Text("Event Name"),
                         filled: true,
-                        hintText: 'This is Event1',
+                        hintText: 'This is Event',
                         suffixIcon: IconButton(
-                            icon: const Icon(Icons.clear), onPressed: () {}),
+                            icon: Icon(Icons.clear, color: colors.tertiaryTextColor,), onPressed: () {}),
                         hintStyle: GoogleFonts.poppins(
                             color: colors.primaryTextColor.withOpacity(0.7)),
                         focusedBorder: OutlineInputBorder(
@@ -52,12 +53,13 @@ class _CreateEventState extends State<CreateEvent> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         label: const Text("Event Description"),
                         filled: true,
                         hintText: 'This is Event1',
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.clear), onPressed: () {}),
+                            icon: Icon(Icons.clear, color: colors.tertiaryTextColor), onPressed: () {}),
                         hintStyle: GoogleFonts.poppins(
                             color: colors.primaryTextColor.withOpacity(0.7)),
                         focusedBorder: OutlineInputBorder(
@@ -97,12 +99,13 @@ class _CreateEventState extends State<CreateEvent> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         label: const Text("Event Date"),
                         filled: true,
                         hintText: 'Input Text',
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.calendar_today), onPressed: () {}),
+                            icon: Icon(Icons.calendar_today, color: colors.tertiaryTextColor), onPressed: () {}),
                         hintStyle: GoogleFonts.poppins(
                             color: colors.primaryTextColor.withOpacity(0.7)),
                         focusedBorder: OutlineInputBorder(
@@ -120,12 +123,13 @@ class _CreateEventState extends State<CreateEvent> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         label: const Text("Event Time"),
                         filled: true,
                         hintText: 'Input Text',
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.calendar_today), onPressed: () {}),
+                            icon: Icon(Icons.calendar_today,color: colors.tertiaryTextColor), onPressed: () {}),
                         hintStyle: GoogleFonts.poppins(
                             color: colors.primaryTextColor.withOpacity(0.7)),
                         focusedBorder: OutlineInputBorder(
@@ -143,12 +147,13 @@ class _CreateEventState extends State<CreateEvent> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 70, 30, 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         label: const Text("Event Location"),
                         filled: true,
-                        hintText: 'Amriteswari Hall',
+                        hintText: 'Amriteshwari Hall',
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.clear), onPressed: () {}),
+                            icon: Icon(Icons.clear,color: colors.tertiaryTextColor), onPressed: () {}),
                         hintStyle: GoogleFonts.poppins(
                             color: colors.primaryTextColor.withOpacity(0.7)),
                         focusedBorder: OutlineInputBorder(
@@ -166,12 +171,13 @@ class _CreateEventState extends State<CreateEvent> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         label: const Text("RSVP limit"),
                         filled: true,
                         hintText: '50',
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.clear), onPressed: () {}),
+                            icon: Icon(Icons.clear,color: colors.tertiaryTextColor), onPressed: () {}),
                         hintStyle: GoogleFonts.poppins(
                             color: colors.primaryTextColor.withOpacity(0.7)),
                         focusedBorder: OutlineInputBorder(

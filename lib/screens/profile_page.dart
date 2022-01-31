@@ -45,6 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         filled: true,
                         hintText: 'Sumithra Sudhakar',
@@ -66,6 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         filled: true,
                         hintText: '1234567890',
@@ -87,6 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 20),
                     child: TextFormField(
+                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                       decoration: InputDecoration(
                         filled: true,
                         hintText: 'xyz@gmail.com',
