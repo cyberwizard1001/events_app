@@ -19,12 +19,13 @@ class _SignUpWidgetState extends State<SignUpWidget> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SvgPicture.asset('assets/svg/opening_background.svg'),
+        SvgPicture.asset('assets/svg/opening_background.svg', fit: BoxFit.fill,),
         Scaffold(
             backgroundColor: Colors.transparent,
             body: CustomScrollView(
               slivers: [
                 SliverFillRemaining(
+                  hasScrollBody: false,
                   child: Center(
                     child: Column(
                       children: [

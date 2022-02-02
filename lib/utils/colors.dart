@@ -16,6 +16,7 @@ var textBoxTextColor = const Color(0xffB8B2B2);
 var inactiveCardColor = const Color(0xff0C0025);
 var activeCardColor = const Color(0xff6038B5);
 var dropdownColor = const Color(0xff5F439A);
+var dividerColor = const Color(0xffdcc1ff);
 
 //var darkHintColor = Colors.black87;
 

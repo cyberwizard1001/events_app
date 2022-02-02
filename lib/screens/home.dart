@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:events_app/widgets/navigation_drawer.dart';
 import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   //TODO: Update lists with model
   final listUpcoming = ["EVENT", "EVENT", "EVENT", "EVENT", "EVENT", "EVENT"];
   final listRSVP = ["EVENT", "EVENT", "EVENT", "EVENT", "EVENT", "EVENT"];
@@ -25,8 +25,8 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
-  Future<void> _refreshRandomNumbers() => Future.delayed(const Duration(seconds: 2), () {
-  });
+  Future<void> _refreshRandomNumbers() =>
+      Future.delayed(const Duration(seconds: 2), () {});
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +56,16 @@ class _HomeState extends State<Home> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: allEventsList.length,
                 itemBuilder: (_, i) {
-                  return _MainCardWidget(
-                      "${allEventsList[i]} ${i + 1}", () {}, context, (bool) {
-                    print(bool);
-                  }, "January ${20+i} 2022",true);
+                  return _MainContentCardWidget(
+                    cardTitle: 'Some Festival Name Here',
+                    cardSubTitle: 'This is some festival on some date',
+                    onTap: () {},
+                    isStarred: (bool) {},
+                    cardDate: 'Feb 2 2022',
+                  );
+                  //     "${allEventsList[i]} ${i + 1}", () {}, context, (bool) {
+                  //   print(bool);
+                  // }, "January ${20+i} 2022",true);
                 },
               )
             ],
@@ -88,7 +94,7 @@ Widget _horizontalListView(context, title, List list) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 15, top: 10,bottom: 10),
+          padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
           child: Text(
             title,
             style: GoogleFonts.poppins(
@@ -104,7 +110,8 @@ Widget _horizontalListView(context, title, List list) {
             controller: PageController(viewportFraction: 0.68),
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
-              return _horizontalWidgetCard("Event ${index + 1}", "January ${index+20} 2022", () {}, false);
+              return _horizontalWidgetCard("Event ${index + 1}",
+                  "January ${index + 20} 2022", () {}, false);
               //TODO: Replace with inFocus variable
             },
           ),
@@ -114,11 +121,12 @@ Widget _horizontalListView(context, title, List list) {
   );
 }
 
-Widget _horizontalWidgetCard(cardTitle, cardDate, onTap,inFocus) {
+Widget _horizontalWidgetCard(cardTitle, cardDate, onTap, inFocus) {
   return Padding(
       padding: const EdgeInsets.only(bottom: 20, left: 15),
       child: Card(
-        color: inFocus==true ? colors.activeCardColor : colors.inactiveCardColor ,
+        color:
+            inFocus == true ? colors.activeCardColor : colors.inactiveCardColor,
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -126,36 +134,34 @@ Widget _horizontalWidgetCard(cardTitle, cardDate, onTap,inFocus) {
         semanticContainer: true,
         child: Stack(
           children: [
-                InkWell(
-                  onTap: onTap,
-                ),
-           Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //TODO: Add icon based on event category
-                    Text(
-                      cardTitle,
-                      style: GoogleFonts.raleway(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5.0),
-                      child: Text(
-                        cardDate,
-                          style: GoogleFonts.raleway(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500)
-                      ),
-                    )
-                  ],
-                ),
+            InkWell(
+              onTap: onTap,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //TODO: Add icon based on event category
+                  Text(
+                    cardTitle,
+                    style: GoogleFonts.raleway(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5.0),
+                    child: Text(cardDate,
+                        style: GoogleFonts.raleway(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
+                  )
+                ],
               ),
+            ),
           ],
         ),
         elevation: 5,
@@ -163,8 +169,8 @@ Widget _horizontalWidgetCard(cardTitle, cardDate, onTap,inFocus) {
 }
 
 class _MainCardWidget extends StatefulWidget {
-  const _MainCardWidget(
-      this.cardTitle, this.onTap, this.context, this.isStarred, this.cardDate,this.onFocus,
+  const _MainCardWidget(this.cardTitle, this.onTap, this.context,
+      this.isStarred, this.cardDate, this.onFocus,
       {Key? key})
       : super(key: key);
   final String cardTitle;
@@ -180,7 +186,6 @@ class _MainCardWidget extends StatefulWidget {
 
 class _MainCardWidgetState extends State<_MainCardWidget> {
   bool isSelected = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -198,8 +203,8 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
             child: Stack(
               children: [
                 InkWell(
-                      onTap: widget.onTap,
-                    ),
+                  onTap: widget.onTap,
+                ),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
@@ -208,7 +213,7 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                       width: 30,
                       height: 30,
                       decoration: const BoxDecoration(
-                        //TODO: Change Icon Color and Icon?
+                          //TODO: Change Icon Color and Icon?
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
@@ -238,28 +243,28 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                            widget.cardTitle,
-                            style: GoogleFonts.raleway(
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.w500),
-                          ),
+                          widget.cardTitle,
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.w500),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(top: 6.0),
                           child: Text(
-                                  widget.cardDate,
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.poppins(
-                                    color: colors.whiteColor,
-                                  ),
-                                ),
+                            widget.cardDate,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.poppins(
+                              color: colors.whiteColor,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -268,8 +273,154 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
               ],
             ),
             elevation: 10,
-            color: widget.onFocus ? colors.inactiveCardColor : colors.activeCardColor,
+            color: widget.onFocus
+                ? colors.inactiveCardColor
+                : colors.activeCardColor,
           )),
+    );
+  }
+}
+
+class _MainContentCardWidget extends StatefulWidget {
+  const _MainContentCardWidget({
+    Key? key,
+    required this.cardSubTitle,
+    required this.cardTitle,
+    required this.cardDate,
+    required this.onTap,
+    required this.isStarred,
+  }) : super(key: key);
+  final String cardTitle;
+  final String cardSubTitle;
+  final String cardDate;
+  final VoidCallback onTap;
+  final Function(bool) isStarred;
+
+  @override
+  _MainContentCardWidgetState createState() => _MainContentCardWidgetState();
+}
+
+class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
+  bool isSelected = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.23,
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            var horizontalCenteredDisplacement = constraints.maxHeight * 0.7;
+            return Stack(
+              children: [
+                Positioned.fill(
+                  left: (horizontalCenteredDisplacement) / 2,
+                  child: InkWell(
+                    child: Card(
+                      color: colors.activeCardColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: InkWell(
+                        onTap: widget.onTap,
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: (horizontalCenteredDisplacement / 2) + 15,
+                              top: 20,
+                              bottom: 15,
+                              right: 15),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AutoSizeText(
+                                      widget.cardTitle,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      style: GoogleFonts.raleway(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 5),
+                                      child: AutoSizeText(
+                                        widget.cardSubTitle,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.raleway(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: const EdgeInsets.only(
+                                          top: 4, bottom: 14),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: colors.dividerColor),
+                                      height: 4.0,
+                                      width: 32.0,
+                                    ),
+                                    Expanded(
+                                        flex: 1,
+                                        child: AutoSizeText(
+                                          widget.cardDate,
+                                          minFontSize: 15,
+                                          textAlign: TextAlign.center,
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 18,
+                                            color: colors.whiteColor,
+                                          ),
+                                        ))
+                                  ],
+                                ),
+                              ),
+                              IconButton(
+                                color: isSelected
+                                    ? colors.accentColor
+                                    : Colors.white,
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                splashRadius: 15,
+                                icon: Icon(
+                                  isSelected ? Icons.star : Icons.star_border,
+                                  size: 25,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    isSelected = !isSelected;
+                                  });
+                                  widget.isStarred(isSelected);
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                    child: Image.asset(
+                  'assets/mask.png',
+                  height: constraints.maxHeight * 0.7,
+                  fit: BoxFit.fill,
+                ))
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }

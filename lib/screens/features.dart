@@ -76,55 +76,62 @@ class _FeaturesPageState extends State<FeaturesPage> {
             )),
       ),
     );
-    return Scaffold(
-      body: Stack(
-        children:[
-          SvgPicture.asset('assets/svg/background.svg'),
-          Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                flex: 4,
-                child: PageView.builder(
-                  controller: controller,
-                  // itemCount: pages.length,
-                  itemBuilder: (_, index) {
-                    return pages[index % pages.length];
-                  },
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Scaffold(
+            body: Stack(
+              children:[
+                SvgPicture.asset('assets/svg/background.svg'),
+                Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 4,
+                      child: PageView.builder(
+                        controller: controller,
+                        // itemCount: pages.length,
+                        itemBuilder: (_, index) {
+                          return pages[index % pages.length];
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: SmoothPageIndicator(
+                        controller: controller,
+                        count: pages.length,
+                        effect: const JumpingDotEffect(
+                          dotHeight: 10,
+                          dotWidth: 10,
+                          jumpScale: .7,
+                          verticalOffset: 15,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        child: UnconstrainedBox(
+                            child: GradientButton(
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const SignUpWidget()));
+                                },
+                                startingColor: Color(0xff1D5AFF),
+                                endingColor: Color(0xff8F48FF),
+                                title: 'SIGN UP')))
+                  ],
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: SmoothPageIndicator(
-                  controller: controller,
-                  count: pages.length,
-                  effect: const JumpingDotEffect(
-                    dotHeight: 10,
-                    dotWidth: 10,
-                    jumpScale: .7,
-                    verticalOffset: 15,
-                  ),
-                ),
-              ),
-              Expanded(
-                  child: UnconstrainedBox(
-                      child: GradientButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignUpWidget()));
-                          },
-                          startingColor: Color(0xff1D5AFF),
-                          endingColor: Color(0xff8F48FF),
-                          title: 'SIGN UP')))
-            ],
+              ),]
+            ),
           ),
-        ),]
-      ),
+        ),
+      ],
     );
   }
 }

@@ -19,108 +19,112 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
         appBar: const AppBarBackButton("Update Profile"),
         backgroundColor: colors.scaffoldColor,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SingleChildScrollView(
-              physics: const ScrollPhysics(),
+        body: CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    radius: 70,
-                    child: ClipOval(
-                      child: SvgPicture.asset('assets/svg/female.svg'),
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.camera_alt,
-                      size: 20,
-                    ),
-                    color: colors.primaryTextColor,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 20),
-                    child: TextFormField(
-                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
-                      decoration: InputDecoration(
-                        filled: true,
-                        hintText: 'Sumithra Sudhakar',
-                        suffixIcon: const Icon(Icons.edit),
-                        hintStyle: GoogleFonts.poppins(
-                            color: colors.primaryTextColor.withOpacity(0.7)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(5)),
-                        fillColor: colors.textBoxFill,
-                        focusColor: colors.textBoxFill,
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(5)),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 70,
+                        child: ClipOval(
+                          child: SvgPicture.asset('assets/svg/female.svg'),
+                        ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 20),
-                    child: TextFormField(
-                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
-                      decoration: InputDecoration(
-                        filled: true,
-                        hintText: '1234567890',
-                        suffixIcon: const Icon(Icons.edit),
-                        hintStyle: GoogleFonts.poppins(
-                            color: colors.primaryTextColor.withOpacity(0.7)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(5)),
-                        fillColor: colors.textBoxFill,
-                        focusColor: colors.textBoxFill,
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(5)),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.camera_alt,
+                          size: 20,
+                        ),
+                        color: colors.primaryTextColor,
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 20),
-                    child: TextFormField(
-                      style: GoogleFonts.montserrat(color: colors.primaryTextColor),
-                      decoration: InputDecoration(
-                        filled: true,
-                        hintText: 'xyz@gmail.com',
-                        suffixIcon: const Icon(Icons.edit),
-                        hintStyle: GoogleFonts.poppins(
-                            color: colors.primaryTextColor.withOpacity(0.7)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(5)),
-                        fillColor: colors.textBoxFill,
-                        focusColor: colors.textBoxFill,
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(5)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 20),
+                        child: TextFormField(
+                          style: GoogleFonts.montserrat(color: colors.primaryTextColor),
+                          decoration: InputDecoration(
+                            filled: true,
+                            hintText: 'Sumithra Sudhakar',
+                            suffixIcon: const Icon(Icons.edit),
+                            hintStyle: GoogleFonts.poppins(
+                                color: colors.primaryTextColor.withOpacity(0.7)),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(5)),
+                            fillColor: colors.textBoxFill,
+                            focusColor: colors.textBoxFill,
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(5)),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 80, 10, 10),
-                    child: GradientButton(
-                        title: 'UPDATE PROFILE',
-                        startingColor: Color(0xff1D5AFF),
-                        endingColor: Color(0xff8F48FF),
-                        onPressed: (){Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CreateEvent()));}),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 20),
+                        child: TextFormField(
+                          style: GoogleFonts.montserrat(color: colors.primaryTextColor),
+                          decoration: InputDecoration(
+                            filled: true,
+                            hintText: '1234567890',
+                            suffixIcon: const Icon(Icons.edit),
+                            hintStyle: GoogleFonts.poppins(
+                                color: colors.primaryTextColor.withOpacity(0.7)),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(5)),
+                            fillColor: colors.textBoxFill,
+                            focusColor: colors.textBoxFill,
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(5)),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 20),
+                        child: TextFormField(
+                          style: GoogleFonts.montserrat(color: colors.primaryTextColor),
+                          decoration: InputDecoration(
+                            filled: true,
+                            hintText: 'xyz@gmail.com',
+                            suffixIcon: const Icon(Icons.edit),
+                            hintStyle: GoogleFonts.poppins(
+                                color: colors.primaryTextColor.withOpacity(0.7)),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(5)),
+                            fillColor: colors.textBoxFill,
+                            focusColor: colors.textBoxFill,
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(5)),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 80, 10, 50),
+                        child: GradientButton(
+                            title: 'UPDATE PROFILE',
+                            startingColor: Color(0xff1D5AFF),
+                            endingColor: Color(0xff8F48FF),
+                            onPressed: (){Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const CreateEvent()));}),
+                      )
+                    ],
                   )
                 ],
               ),
-            )
+            ),
           ],
         ));
   }
