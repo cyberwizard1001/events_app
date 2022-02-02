@@ -203,9 +203,12 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(10),
                     child: Container(
+                      width: 30,
+                      height: 30,
                       decoration: const BoxDecoration(
+                        //TODO: Change Icon Color and Icon?
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
@@ -273,7 +276,7 @@ class _MainCardWidgetState extends State<_MainCardWidget> {
 
 Widget _dropDown(listOfOptions, chosenOption, onChanged) {
   return Padding(
-    padding: const EdgeInsets.all(10),
+    padding: const EdgeInsets.only(left: 20),
     child: Card(
       //TODO: Reduce the height of the card
       elevation: 5,
@@ -301,7 +304,6 @@ Widget _dropDown(listOfOptions, chosenOption, onChanged) {
                     value,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  padding: const EdgeInsets.only(left: 8, right: 12),
                 ),
               );
             }).toList(),
