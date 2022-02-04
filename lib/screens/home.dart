@@ -305,14 +305,16 @@ class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.23,
-      width: double.infinity,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minHeight: MediaQuery.of(context).size.height * 0.4,
+      ),
+      // height: MediaQuery.of(context).size.height * 0.23,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-            var horizontalCenteredDisplacement = constraints.maxHeight * 0.7;
+            var horizontalCenteredDisplacement = constraints.maxWidth * 0.3;
             return Stack(
               children: [
                 Positioned.fill(
@@ -413,7 +415,7 @@ class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
                 Positioned(
                     child: Image.asset(
                   'assets/mask.png',
-                  height: constraints.maxHeight * 0.7,
+                  width: horizontalCenteredDisplacement,
                   fit: BoxFit.fill,
                 ))
               ],
