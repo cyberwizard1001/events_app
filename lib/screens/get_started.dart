@@ -77,7 +77,7 @@ class GetStarted extends StatelessWidget {
                               title: 'GET STARTED',
                             ),
                             Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 20.0),
+                                padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30),
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       primary: colors.whiteColor,

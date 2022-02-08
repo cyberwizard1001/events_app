@@ -113,18 +113,19 @@ class _FeaturesPageState extends State<FeaturesPage> {
                         ),
                       ),
                     ),
-                    Expanded(
-                        child: UnconstrainedBox(
-                            child: GradientButton(
-                                onPressed: () {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => const SignUpWidget()));
-                                },
-                                startingColor: Color(0xff1D5AFF),
-                                endingColor: Color(0xff8F48FF),
-                                title: 'SIGN UP')))
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 40),
+                      child: GradientButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignUpWidget()));
+                          },
+                          startingColor: Color(0xff1D5AFF),
+                          endingColor: Color(0xff8F48FF),
+                          title: 'SIGN UP'),
+                    )
                   ],
                 ),
               ),]

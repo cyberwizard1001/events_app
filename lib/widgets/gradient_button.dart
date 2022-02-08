@@ -23,35 +23,38 @@ class GradientButton extends StatefulWidget {
 class _GradientButtonState extends State<GradientButton> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: ElevatedButton(
-        onPressed: widget.onPressed,
-        child: Ink(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              gradient: LinearGradient(
-                  colors: [widget.startingColor, widget.endingColor],
-                  begin: Alignment.topLeft,
-                  end: Alignment.centerRight)),
-          child: Container(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 14),
-              child: Text(
-                widget.title,
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color: colors.secondaryTextColor,
-                    fontWeight: FontWeight.w600),
+    return SizedBox(
+      width: double.maxFinite,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: ElevatedButton(
+          onPressed: widget.onPressed,
+          child: Ink(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                gradient: LinearGradient(
+                    colors: [widget.startingColor, widget.endingColor],
+                    begin: Alignment.topLeft,
+                    end: Alignment.centerRight)),
+            child: Container(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 14),
+                child: Text(
+                  widget.title,
+                  style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      color: colors.secondaryTextColor,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
             ),
           ),
-        ),
-        style: ElevatedButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-          padding: const EdgeInsets.all(0.0),
+          style: ElevatedButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+            padding: const EdgeInsets.all(0.0),
+          ),
         ),
       ),
     );
