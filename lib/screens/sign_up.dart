@@ -112,7 +112,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                EventsPage()));
+                                                const EventsPage()));
                                   },
                                   title: 'SIGN UP',
                                   startingColor: const Color(0xff1D5AFF),

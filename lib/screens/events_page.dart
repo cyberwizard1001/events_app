@@ -11,9 +11,6 @@ class EventsPage extends StatefulWidget {
   _EventsPageState createState() => _EventsPageState();
 }
 
-//TODO: Fix back navigation
-///Back page navigation takes page to sig in instead of home page
-
 class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {

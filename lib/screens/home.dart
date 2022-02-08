@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
                     cardTitle: 'Some Festival Name Here',
                     cardSubTitle: 'This is some festival on some date',
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) =>

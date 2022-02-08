@@ -77,7 +77,7 @@ class _CreateEventState extends State<CreateEvent> {
                  Padding(
                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                    child: Container(
-                     padding: EdgeInsets.symmetric(horizontal: 12,vertical: 4),
+                     padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 4),
                      decoration: BoxDecoration(
                        borderRadius: BorderRadius.circular(5),
                        color: colors.textBoxFill

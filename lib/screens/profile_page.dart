@@ -113,8 +113,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         padding: const EdgeInsets.fromLTRB(10, 80, 10, 50),
                         child: GradientButton(
                             title: 'UPDATE PROFILE',
-                            startingColor: Color(0xff1D5AFF),
-                            endingColor: Color(0xff8F48FF),
+                            startingColor: const Color(0xff1D5AFF),
+                            endingColor: const Color(0xff8F48FF),
                             onPressed: (){Navigator.push(
                                 context,
                                 MaterialPageRoute(

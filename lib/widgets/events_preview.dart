@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Events_Preview extends StatelessWidget {
-   Events_Preview(this.eventName, this.imageUrl, this.route);
+class EventsPreview extends StatelessWidget {
+   const EventsPreview(this.eventName, this.imageUrl, this.route, {Key? key}) : super(key: key);
    final String imageUrl;
    final String eventName;
    final Widget route;
   @override
   Widget build(BuildContext context) {
     return Expanded(child:  Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child:  Card(
 
           elevation: 20,

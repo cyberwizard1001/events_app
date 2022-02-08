@@ -10,7 +10,7 @@ class StarredWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarBackButton("Starred Events"),
+      appBar: const AppBarBackButton("Starred Events"),
       backgroundColor: colors.scaffoldColor,
       body: NoStar(),
     );

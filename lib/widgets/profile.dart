@@ -18,7 +18,7 @@ class NavDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              currentAccountPicture: CircleAvatar(
+              currentAccountPicture: const CircleAvatar(
                 child: ClipOval(
                   child: Image(
                     image: AssetImage("assets/cultural.png"),
@@ -57,7 +57,7 @@ class NavDrawer extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Container(
                 height: 1,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(color: Colors.grey),
                   ),

@@ -122,8 +122,8 @@ class _FeaturesPageState extends State<FeaturesPage> {
                                 MaterialPageRoute(
                                     builder: (context) => const SignUpWidget()));
                           },
-                          startingColor: Color(0xff1D5AFF),
-                          endingColor: Color(0xff8F48FF),
+                          startingColor: const Color(0xff1D5AFF),
+                          endingColor: const Color(0xff8F48FF),
                           title: 'SIGN UP'),
                     )
                   ],
