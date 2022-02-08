@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:events_app/screens/events_page.dart';
 import 'package:events_app/widgets/navigation_drawer.dart';
-import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:google_fonts/google_fonts.dart';
@@ -63,7 +63,13 @@ class _HomeState extends State<Home> {
                   return _MainContentCardWidget(
                     cardTitle: 'Some Festival Name Here',
                     cardSubTitle: 'This is some festival on some date',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const EventsPage()));
+                    },
                     isStarred: (bool) {},
                     cardDate: 'Feb 2 2022',
                   );
@@ -275,7 +281,6 @@ class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
                                     ? colors.accentColor
                                     : Colors.white,
                                 padding: EdgeInsets.zero,
-                                constraints: BoxConstraints(),
                                 splashRadius: 15,
                                 icon: Icon(
                                   isSelected ? Icons.star : Icons.star_border,
