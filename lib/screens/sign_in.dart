@@ -14,7 +14,7 @@ class SignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SvgPicture.asset('assets/svg/opening_background.svg', fit: BoxFit.fill,),
+        SvgPicture.asset('assets/svg/opening_background.svg', fit: BoxFit.fill, width: double.infinity,),
         Scaffold(
             backgroundColor: Colors.transparent,
             body: CustomScrollView(slivers: [

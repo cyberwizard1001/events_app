@@ -12,6 +12,10 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+///Apparently using static values in SizedBoxes and ConstrainedBoxes are
+///more responsive than using mediaQueries, the value is relative just like dp
+/// in android
+
 class _HomeState extends State<Home> {
   //TODO: Update lists with model
   final listUpcoming = ["EVENT", "EVENT", "EVENT", "EVENT", "EVENT", "EVENT"];
@@ -63,9 +67,6 @@ class _HomeState extends State<Home> {
                     isStarred: (bool) {},
                     cardDate: 'Feb 2 2022',
                   );
-                  //     "${allEventsList[i]} ${i + 1}", () {}, context, (bool) {
-                  //   print(bool);
-                  // }, "January ${20+i} 2022",true);
                 },
               )
             ],
@@ -88,7 +89,7 @@ class _HomeState extends State<Home> {
 
 Widget _horizontalListView(context, title, List list) {
   return SizedBox(
-    height: MediaQuery.of(context).size.height * 0.235,
+    height: 200,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,119 +169,6 @@ Widget _horizontalWidgetCard(cardTitle, cardDate, onTap, inFocus) {
       ));
 }
 
-class _MainCardWidget extends StatefulWidget {
-  const _MainCardWidget(this.cardTitle, this.onTap, this.context,
-      this.isStarred, this.cardDate, this.onFocus,
-      {Key? key})
-      : super(key: key);
-  final String cardTitle;
-  final String cardDate;
-  final VoidCallback onTap;
-  final Function(bool) isStarred;
-  final BuildContext context;
-  final bool onFocus;
-
-  @override
-  _MainCardWidgetState createState() => _MainCardWidgetState();
-}
-
-class _MainCardWidgetState extends State<_MainCardWidget> {
-  bool isSelected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.23,
-      width: double.infinity,
-      child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Card(
-            clipBehavior: Clip.antiAlias,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            semanticContainer: true,
-            child: Stack(
-              children: [
-                InkWell(
-                  onTap: widget.onTap,
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: const BoxDecoration(
-                          //TODO: Change Icon Color and Icon?
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color.fromARGB(173, 255, 199, 252),
-                                blurRadius: 20),
-                          ]),
-                      child: IconButton(
-                        color: isSelected
-                            ? const Color.fromARGB(255, 255, 0, 119)
-                            : Colors.white,
-                        padding: EdgeInsets.zero,
-                        splashRadius: 15,
-                        icon: Icon(
-                          isSelected ? Icons.star : Icons.star_border,
-                          size: 25,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            isSelected = !isSelected;
-                          });
-                          widget.isStarred(isSelected);
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.cardTitle,
-                          style: GoogleFonts.raleway(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 6.0),
-                          child: Text(
-                            widget.cardDate,
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.poppins(
-                              color: colors.whiteColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-            elevation: 10,
-            color: widget.onFocus
-                ? colors.inactiveCardColor
-                : colors.activeCardColor,
-          )),
-    );
-  }
-}
-
 class _MainContentCardWidget extends StatefulWidget {
   const _MainContentCardWidget({
     Key? key,
@@ -305,11 +193,8 @@ class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        minHeight: MediaQuery.of(context).size.height * 0.4,
-      ),
-      // height: MediaQuery.of(context).size.height * 0.23,
+    return SizedBox(
+      height: 200,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: LayoutBuilder(
@@ -364,8 +249,7 @@ class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
                                       ),
                                     ),
                                     Container(
-                                      margin: const EdgeInsets.only(
-                                          top: 4, bottom: 14),
+                                      margin: const EdgeInsets.only(top: 4),
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
@@ -373,17 +257,16 @@ class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
                                       height: 4.0,
                                       width: 32.0,
                                     ),
-                                    Expanded(
-                                        flex: 1,
-                                        child: AutoSizeText(
-                                          widget.cardDate,
-                                          minFontSize: 15,
-                                          textAlign: TextAlign.center,
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 18,
-                                            color: colors.whiteColor,
-                                          ),
-                                        ))
+                                    Expanded(child: Container()),
+                                    AutoSizeText(
+                                      widget.cardDate,
+                                      minFontSize: 15,
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 18,
+                                        color: colors.whiteColor,
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),
@@ -431,7 +314,6 @@ Widget _dropDown(listOfOptions, chosenOption, onChanged) {
   return Padding(
     padding: const EdgeInsets.only(left: 20),
     child: Card(
-      //TODO: Reduce the height of the card
       elevation: 5,
       color: colors.dropdownColor,
       child: DropdownButtonHideUnderline(
@@ -452,11 +334,9 @@ Widget _dropDown(listOfOptions, chosenOption, onChanged) {
             items: listOfOptions.map<DropdownMenuItem>((value) {
               return DropdownMenuItem(
                 value: value,
-                child: Container(
-                  child: Text(
-                    value,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                child: Text(
+                  value,
+                  overflow: TextOverflow.ellipsis,
                 ),
               );
             }).toList(),

@@ -83,7 +83,7 @@ class _FeaturesPageState extends State<FeaturesPage> {
           child: Scaffold(
             body: Stack(
               children:[
-                SvgPicture.asset('assets/svg/background.svg'),
+                SvgPicture.asset('assets/svg/background.svg', fit: BoxFit.fill, width: double.infinity,),
                 Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
