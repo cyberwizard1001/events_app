@@ -23,6 +23,7 @@ class _HomeState extends State<Home> {
   final allEventsList = ["Event", "Event", "Event", "Event", "Event", "Event"];
 
   String chosenOption = "ALL EVENTS";
+  int focusedPage = 0;
 
   @override
   void initState() {
@@ -47,8 +48,12 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _horizontalListView(context, "Upcoming Events", listUpcoming),
-              _horizontalListView(context, "RSVP'd Events", listRSVP),
+              _HorizontalListView(
+                  context: context,
+                  list: listUpcoming,
+                  title: "Upcoming Events"),
+              _HorizontalListView(
+                  context: context, list: listRSVP, title: "RSVP'd Events"),
               _dropDown(["ALL EVENTS", "STARRED EVENTS", "RSVP'D EVENTS"],
                   chosenOption, (newValue) {
                 setState(() {
@@ -67,8 +72,7 @@ class _HomeState extends State<Home> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  const EventsPage()));
+                              builder: (context) => const EventsPage()));
                     },
                     isStarred: (bool) {},
                     cardDate: 'Feb 2 2022',
@@ -93,39 +97,64 @@ class _HomeState extends State<Home> {
   }
 }
 
-Widget _horizontalListView(context, title, List list) {
-  return SizedBox(
-    height: 200,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
-          child: Text(
-            title,
-            style: GoogleFonts.poppins(
-                color: colors.primaryTextColor,
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
+class _HorizontalListView extends StatefulWidget {
+  final List list;
+  final String title;
+  final BuildContext context;
+
+  const _HorizontalListView(
+      {Key? key,
+      required this.context,
+      required this.title,
+      required this.list})
+      : super(key: key);
+
+  @override
+  _HorizontalListViewState createState() => _HorizontalListViewState();
+}
+
+class _HorizontalListViewState extends State<_HorizontalListView> {
+  int currentPagePosition = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
+            child: Text(
+              widget.title,
+              style: GoogleFonts.poppins(
+                  color: colors.primaryTextColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ),
-        ),
-        Expanded(
-          child: PageView.builder(
-            itemCount: list.length,
-            padEnds: false,
-            controller: PageController(viewportFraction: 0.68),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, int index) {
-              return _horizontalWidgetCard("Event ${index + 1}",
-                  "January ${index + 20} 2022", () {}, false);
-              //TODO: Replace with inFocus variable
-            },
-          ),
-        )
-      ],
-    ),
-  );
+          Expanded(
+            child: PageView.builder(
+              itemCount: widget.list.length,
+              padEnds: false,
+              onPageChanged: (page) {
+                setState(() {
+                  currentPagePosition = page;
+                });
+              },
+              controller: PageController(viewportFraction: 0.7),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return _horizontalWidgetCard("Event ${index + 1}",
+                    "January ${index + 20} 2022", () {}, currentPagePosition == index);
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }
 
 Widget _horizontalWidgetCard(cardTitle, cardDate, onTap, inFocus) {
@@ -144,6 +173,16 @@ Widget _horizontalWidgetCard(cardTitle, cardDate, onTap, inFocus) {
             InkWell(
               onTap: onTap,
             ),
+            Positioned(
+                right: 0,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Image.asset(
+                    'assets/mask.png',
+                    fit: BoxFit.fill,
+                    width: 70,
+                  ),
+                )),
             Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
