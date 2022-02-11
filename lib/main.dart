@@ -1,13 +1,35 @@
 import 'package:events_app/screens/get_started.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:events_app/utils/themes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 //TODO: Add ScrollViews to sign_in and sign_up pages and
 //TODO: Change SVG colors to white
 //TODO: Add more white space to the home page
 
-void main() {
+///Firebase Auth Phone:
+//  await Firebase.initializeApp();
+//
+//   await FirebaseAuth.instance.verifyPhoneNumber(
+//     phoneNumber: '+91 9080336541',
+//     verificationCompleted: (PhoneAuthCredential credential) {
+//       print("COMPLETE");
+//     },
+//     verificationFailed: (FirebaseAuthException e) {
+//       print(e);
+//       print("FAILED");
+//     },
+//     codeSent: (String verificationId, int? resendToken) {
+//       PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationId, smsCode: "173456");
+//       print("credential" + credential.token.toString());
+//     },
+//     codeAutoRetrievalTimeout: (String verificationId) {
+//     },
+//   );
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
