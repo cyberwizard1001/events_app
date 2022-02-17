@@ -15,7 +15,18 @@ class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: const BoxDecoration(
+        gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+        Color(0xff320097),
+          Color(0xff000000)
+    ],
+    ),
+    ),
+    child: SingleChildScrollView(
         child: Stack(
           children: [
             Column(
@@ -105,7 +116,7 @@ class _EventsPageState extends State<EventsPage> {
                 child: AppBarBackButton('Event Name (replace with name)')),
           ],
         ),
-      ),
+      ),)
     );
   }
 }

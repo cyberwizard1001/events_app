@@ -38,7 +38,7 @@ class AppBarBackButton extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         style: GoogleFonts.montserrat(
-            fontSize: 20, color: colors.primaryTextColor),
+            fontSize: 22, color: colors.primaryTextColor),
       ),
     );
   }

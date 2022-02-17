@@ -89,7 +89,7 @@ class _HomeState extends State<Home> {
         title: Text(
           "Home",
           style: GoogleFonts.montserrat(
-              fontSize: 20, color: colors.primaryTextColor),
+              fontSize: 22, color: colors.primaryTextColor),
         ),
       ),
       drawer: const NavigationDrawer(),
@@ -251,7 +251,7 @@ class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
                   left: (horizontalCenteredDisplacement) / 2,
                   child: InkWell(
                     child: Card(
-                      color: colors.activeCardColor,
+                      color: colors.inactiveCardColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
