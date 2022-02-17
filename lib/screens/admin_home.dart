@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:events_app/screens/admin_eventpage.dart';
 import 'package:events_app/screens/events_page.dart';
 import 'package:events_app/screens/people_list.dart';
 import 'package:events_app/widgets/navigation_drawer.dart';
@@ -53,8 +54,8 @@ class _AdminHomeState extends State<AdminHome> {
                   context: context,
                   list: listUpcoming,
                   title: "Upcoming Events"),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text("All Events"),
               ),
               ListView.builder(
@@ -69,7 +70,7 @@ class _AdminHomeState extends State<AdminHome> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const EventsPage()));
+                              builder: (context) => const AdminEventsPage()));
                     },
                     isStarred: (bool) {},
                     cardDate: 'Feb 2 2022',
