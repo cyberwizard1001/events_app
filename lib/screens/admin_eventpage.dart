@@ -1,3 +1,4 @@
+import 'package:events_app/screens/people_list.dart';
 import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
@@ -112,6 +113,22 @@ class _AdminEventsPageState extends State<AdminEventsPage> {
                               fontWeight: FontWeight.w300,
                               fontSize: 20,
                             ),
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                          const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                          child: TextButton(
+                            child: Text("View RSVP'd members",textAlign: TextAlign.left,
+                              style: GoogleFonts.raleway(
+                                color: Colors.white,
+                                height: 1.4,
+                                fontWeight: FontWeight.w300,
+                                fontSize: 20,
+                              ),), onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => PeopleListPage()));
+                          },
+
                           ),
                         ),
                       ],
