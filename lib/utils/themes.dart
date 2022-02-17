@@ -6,15 +6,15 @@ import 'package:google_fonts/google_fonts.dart';
 class darkTheme {
   static ThemeData get DarkTheme {
     return ThemeData(
-      fontFamily: 'sourceSansPro',
+      fontFamily: 'Nunito',
       primaryColor: Colors.white,
       scaffoldBackgroundColor: colors.scaffoldColor,
       textTheme: TextTheme(
-        headline1: GoogleFonts.sourceSansPro(
+        headline1: GoogleFonts.nunito(
             color: Colors.white, fontSize: 40, fontWeight: FontWeight.w200),
-        bodyText1: GoogleFonts.sourceSansPro(color: Colors.white, fontSize: 15),
-        bodyText2: GoogleFonts.sourceSansPro(
-            color: Colors.white, fontSize: 15, fontWeight: FontWeight.w300),
+          bodyText1: GoogleFonts.nunito(color: Colors.white, fontSize: 16,),
+          bodyText2: GoogleFonts.nunito(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          caption: GoogleFonts.nunito(color: Colors.white70, fontSize: 14)
       ),
       iconTheme: IconThemeData(color: colors.accentColor),
       appBarTheme: const AppBarTheme(

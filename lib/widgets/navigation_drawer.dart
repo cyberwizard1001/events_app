@@ -1,3 +1,4 @@
+import 'package:events_app/screens/admin_home.dart';
 import 'package:events_app/screens/get_started.dart';
 import 'package:events_app/screens/profile_page.dart';
 import 'package:events_app/screens/starred_events.dart';
@@ -13,7 +14,7 @@ class NavigationDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
-        color: colors.scaffoldColor,
+        color: Colors.black,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -26,12 +27,13 @@ class NavigationDrawer extends StatelessWidget {
 
                   ),
                 ),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [colors.accentColor, colors.secondAccentColor],
-                    )
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                    // gradient: LinearGradient(
+                    //   begin: Alignment.bottomLeft,
+                    //   end: Alignment.topRight,
+                    //   colors: [colors.accentColor, colors.secondAccentColor],
+                    // )
                 ),
                 accountName: Text(
                   'Sumithra Sudhakar',
@@ -53,7 +55,7 @@ class NavigationDrawer extends StatelessWidget {
             ),
 
             buildDrawerItem(
-                icon: Icons.person_rounded,
+                icon: Icons.person_outline_rounded,
                 text: "Profile",
                 onTap: () {
                   Navigator.push(
@@ -70,6 +72,9 @@ class NavigationDrawer extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const StarredWidget()));
                 }),
+            buildDrawerItem(text: 'Admin console', icon: Icons.admin_panel_settings_outlined,  onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const AdminHome()));
+            }),
             Expanded(child: Container()),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -110,7 +115,7 @@ Widget buildDrawerItem({
         padding: const EdgeInsets.only(left: 10),
         child: Icon(
           icon,
-          color: colors.accentColor,
+          color: colors.whiteColor,
         ),
       ),
       title: Text(
