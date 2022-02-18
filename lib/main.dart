@@ -8,8 +8,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 //TODO: Add ScrollViews to sign_in and sign_up pages and
 //TODO: Change SVG colors to white
 //TODO: Add more white space to the home page
-
-///Firebase Auth Phone:
+//
+// /Firebase Auth Phone:
 //  await Firebase.initializeApp();
 //
 //   await FirebaseAuth.instance.verifyPhoneNumber(
