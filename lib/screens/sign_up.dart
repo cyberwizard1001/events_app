@@ -6,6 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:events_app/utils/constants.dart' as constants;
 
 class SignUpWidget extends StatefulWidget {
   const SignUpWidget({Key? key}) : super(key: key);
@@ -19,7 +20,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SvgPicture.asset('assets/svg/opening_background.svg', fit: BoxFit.fill, width: double.infinity,),
+        Container(
+          decoration: constants.gradientDecoration,
+        ),
         Scaffold(
             backgroundColor: Colors.transparent,
             body: CustomScrollView(
@@ -29,98 +32,103 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                   child: Center(
                     child: Column(
                       children: [
-                        Expanded(flex: 1, child: Container()),
-                        Expanded(
-                          flex: 2,
-                          child: SvgPicture.asset('assets/svg/login_image.svg'),
-                        ),
+                        Expanded(child: Container(), flex: 1,),
                         Expanded(
                           flex: 4,
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 20, right: 20, top: 40),
-                                child: Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Text(
-                                    'Sign up',
-                                    style: GoogleFonts.poppins(
-                                      color: colors.primaryTextColor,
-                                      fontSize: 35,
+                          child: Container(
+                            child: SvgPicture.asset('assets/svg/title_image.svg')
+                          ),),
+                          Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20, right: 20, top: 80),
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        'Sign up',
+                                        style: GoogleFonts.nunito(
+                                          color: colors.primaryTextColor,
+                                          fontSize: 30,
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 40, right: 40, top: 15, bottom: 10),
-                                child: TextFormField(
-                                    style: GoogleFonts.montserrat(color: colors.primaryTextColor),
-                                    decoration: InputDecoration(
-                                  label: Text('NAME',
-                                      style: GoogleFonts.raleway(
-                                          color: colors.textBoxTextColor,
-                                          fontSize: 12)),
-                                  filled: true,
-                                  hintText: 'Please enter your name',
-                                  hintStyle: GoogleFonts.poppins(
-                                      color: colors.primaryTextColor
-                                          .withOpacity(0.7)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  fillColor: colors.textBoxFill,
-                                  focusColor: colors.textBoxFill,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(5)),
-                                )),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 40, vertical: 10),
-                                child: TextFormField(
-                                    style: GoogleFonts.montserrat(color: colors.primaryTextColor),
-                                    decoration: InputDecoration(
-                                  label: Text(
-                                    'PHONE NUMBER',
-                                    style: GoogleFonts.raleway(
-                                        color: colors.textBoxTextColor,
-                                        fontSize: 12),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20, right: 50, top: 25, bottom: 10),
+                                    child: TextFormField(
+                                        style: GoogleFonts.montserrat(color: colors.primaryTextColor),
+                                        decoration: InputDecoration(
+                                      label: Text('NAME',
+                                          style: GoogleFonts.raleway(
+                                              color: colors.textBoxTextColor,
+                                              fontSize: 12)),
+                                      filled: true,
+                                      hintText: 'Please enter your name',
+                                      hintStyle: GoogleFonts.poppins(
+                                          color: colors.primaryTextColor
+                                              .withOpacity(0.7)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                          borderRadius: BorderRadius.circular(5)),
+                                      fillColor: colors.textBoxFill,
+                                      focusColor: colors.textBoxFill,
+                                      enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                          borderRadius: BorderRadius.circular(5)),
+                                    )),
                                   ),
-                                  filled: true,
-                                  hintText: 'Please enter your phone number',
-                                  hintStyle: GoogleFonts.poppins(
-                                      color: colors.primaryTextColor
-                                          .withOpacity(0.7)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  fillColor: colors.textBoxFill,
-                                  focusColor: colors.textBoxFill,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(5)),
-                                )),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20, right: 50, top: 15, bottom: 10),
+                                    child: TextFormField(
+                                        style: GoogleFonts.montserrat(color: colors.primaryTextColor),
+                                        decoration: InputDecoration(
+                                      label: Text(
+                                        'PHONE NUMBER',
+                                        style: GoogleFonts.raleway(
+                                            color: colors.textBoxTextColor,
+                                            fontSize: 12),
+                                      ),
+                                      filled: true,
+                                      hintText: 'Please enter your phone number',
+                                      hintStyle: GoogleFonts.poppins(
+                                          color: colors.primaryTextColor
+                                              .withOpacity(0.7)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                          borderRadius: BorderRadius.circular(5)),
+                                      fillColor: colors.textBoxFill,
+                                      focusColor: colors.textBoxFill,
+                                      enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                          borderRadius: BorderRadius.circular(5)),
+                                    )),
+                                  ),
+                                  Padding(
+                                      padding: const EdgeInsets.only(top: 50.0, left: 20),
+                                      child: Align(
+                                        alignment: Alignment.bottomLeft,
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const EventsPage()));
+                                          },
+                                          child: Text('SIGN UP',style: GoogleFonts.nunito(fontWeight: FontWeight.bold),),
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 50.0),
-                                child: GradientButton(
-                                  onPressed: () {
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const EventsPage()));
-                                  },
-                                  title: 'SIGN UP',
-                                  startingColor: const Color(0xff1D5AFF),
-                                  endingColor: const Color(0xff8F48FF),
-                                ),
-                              )
-                            ],
-                          ),
+                        Expanded(
+                          flex: 1,
+                            child: Container()
                         )
                       ],
                     ),

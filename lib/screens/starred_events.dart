@@ -3,6 +3,7 @@ import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:events_app/utils/constants.dart' as constants;
 
 class StarredWidget extends StatelessWidget {
   const StarredWidget({Key? key}) : super(key: key);
@@ -11,8 +12,10 @@ class StarredWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarBackButton("Starred Events"),
-      backgroundColor: colors.scaffoldColor,
-      body: NoStar(),
+      body: Container(
+       decoration: constants.gradientDecoration,
+           child: NoStar(),
+      )
     );
   }
 }
@@ -31,8 +34,8 @@ Widget NoStar() {
           Expanded(flex: 2,child: Text(
             "You can star your favorite events and get quick access to them from here!",
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
-                fontSize: 17,
+            style: GoogleFonts.nunito(
+                fontSize: 18,
                 color: colors.primaryTextColor,
                 fontWeight: FontWeight.normal),
           ),)

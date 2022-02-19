@@ -26,6 +26,14 @@ class _FeaturesPageState extends State<FeaturesPage> {
     'Get notified of updates'
   ];
 
+  var subText = [
+    'Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum',
+    'Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum',
+    'Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum',
+    'Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum',
+    'Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum',
+  ];
+
   var image_location = [
     'assets/svg/register.svg',
     'assets/svg/view_events.svg',
@@ -39,22 +47,18 @@ class _FeaturesPageState extends State<FeaturesPage> {
     final pages = List.generate(
       5,
       (index) => Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.transparent,
-        ),
-        margin: const EdgeInsets.only(top: 40, left: 10, right: 10),
+        margin: const EdgeInsets.only(left: 10, right: 10),
         child: Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
-                  flex: 2,
+                  flex: 1,
                   child: Container(),
                 ),
                 Expanded(
-                  flex: 7,
+                  flex: 6,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20.0),
                     child: SvgPicture.asset(
@@ -63,14 +67,35 @@ class _FeaturesPageState extends State<FeaturesPage> {
                   ),
                 ),
                 Expanded(
-                  flex: 2,
-                  child: Text(
-                    text[index],
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.montserrat(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w700,
-                        color: colors.primaryTextColor),
+                  flex: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 50.0),
+                    child: Column(
+                      children: [ Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          text[index],
+                          style: GoogleFonts.nunito(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w700,
+                              color: colors.primaryTextColor),
+                        ),
+                      ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              subText[index],
+                              style: GoogleFonts.nunito(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                  color: colors.primaryTextColor),
+                            ),
+                          ),
+                        ),
+                        ]
+                    ),
                   ),
                 ),
               ],
@@ -93,7 +118,7 @@ class _FeaturesPageState extends State<FeaturesPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Expanded(
-                        flex: 4,
+                        flex: 8,
                         child: PageView.builder(
                           controller: controller,
                           // itemCount: pages.length,
@@ -102,33 +127,30 @@ class _FeaturesPageState extends State<FeaturesPage> {
                           },
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: SmoothPageIndicator(
-                          controller: controller,
-                          count: pages.length,
-                          effect: const JumpingDotEffect(
-                            dotHeight: 10,
-                            dotWidth: 10,
-                            jumpScale: .7,
-                            verticalOffset: 15,
-                          ),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SmoothPageIndicator(
+                              controller: controller,
+                              count: pages.length,
+                              effect: const JumpingDotEffect(
+                                dotHeight: 7,
+                                dotWidth: 7,
+                                jumpScale: .7,
+                                verticalOffset: 10,
+                              ),
+                            ),
+                          const SizedBox(width: 30,),
+                          ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const SignUpWidget()));
+                                },
+                                child: Text('SIGN UP', style: GoogleFonts.nunito(fontSize: 17, fontWeight: FontWeight.bold),)),
+                        ],
                       ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Padding(
-                          padding: EdgeInsets.only(bottom: 40),
-                          child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const SignUpWidget()));
-                              },
-                              child: Text('SIGN UP', style: GoogleFonts.nunito(fontSize: 17, fontWeight: FontWeight.bold),)),
-                        ),
-                      )
                     ],
                   ),
               ),

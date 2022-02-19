@@ -9,3 +9,4 @@ end: Alignment.bottomCenter,
 stops: const [0.0,0.5,1.0]
 ));
 
+var loginGradients = [colors.loginGradientBeginColor, colors.loginGradientEndColor];

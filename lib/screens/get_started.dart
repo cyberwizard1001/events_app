@@ -30,7 +30,7 @@ class GetStarted extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.only(top: 20.0, right: 20.0, left: 25.0, bottom: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,16 +39,16 @@ class GetStarted extends StatelessWidget {
                         child: Container(),
                         flex: 1,
                       ),
-                      Expanded(
+                      const Expanded(
                           flex: 3,
                           child: Text('Replace with app logo'),),
                       Expanded(
-                        flex: 5,
+                        flex: 4,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 60.0, bottom: 10.0),
+                              padding: const EdgeInsets.only(top: 60.0, bottom: 10.0, right: 40.0),
                               child: Text(
                                 "Here's a random line approximate length",
                                 style: GoogleFonts.nunito(
@@ -57,52 +57,55 @@ class GetStarted extends StatelessWidget {
                                     color: colors.primaryTextColor),
                               )),
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 50, right: 60),
+                              padding: const EdgeInsets.only(bottom: 0, right: 60, top: 20),
                               child: Text(
                                   'A small description of what the app is and what it does',
                                   style: GoogleFonts.nunito(
                                       color: colors.primaryTextColor,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: 17,
                                   ),
                                 ),
                               ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                const SignInWidget()));
-                                      },
-                                      child: Text(
-                                        'Sign In',
-                                        style: GoogleFonts.nunito(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-
-                                        ),
-                                      ),
-                                    ),
-                                const SizedBox(width: 20,),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      primary: colors.primaryTextColor),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => const FeaturesPage()));
-                                  },
-                                  child: Text('Get Started', style: GoogleFonts.nunito(fontSize: 16, color: colors.scaffoldColor,fontWeight: FontWeight.bold,),),
-                                ),
-                              ],
-                            )
                           ],
                         ),
-                      )
+                      ),
+                      Expanded(
+                        flex: 1,
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                      const SignInWidget()));
+                            },
+                            child: Text(
+                              'Sign In',
+                              style: GoogleFonts.nunito(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 20,),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: colors.primaryTextColor),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const FeaturesPage()));
+                            },
+                            child: Text('Get Started', style: GoogleFonts.nunito(fontSize: 16, color: colors.scaffoldColor,fontWeight: FontWeight.bold,),),
+                          ),
+                        ],
+                      ))
                     ],
                   ),
                 )

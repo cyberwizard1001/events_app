@@ -10,9 +10,9 @@ var secondAccentColor = const Color(0xff0e0228);
 var successColor = const Color(0xffB2E081);
 var errorColor = const Color.fromARGB(255, 255, 167, 167);
 var textBoxBorder = const Color(0xff6B737A);
-var textBoxFill = const Color(0xff2b2852);
+var textBoxFill = const Color(0xff332e53);
 var whiteColor = const Color(0xffffffff);
-var textBoxTextColor = const Color(0xffB8B2B2);
+var textBoxTextColor = const Color(0xffd9d0d0);
 var inactiveCardColor = const Color(0xff2c2b3d);
 var activeCardColor = const Color(0xff3C386F);
 var dropdownColor = const Color(0xff323147);
@@ -21,6 +21,8 @@ var gradientBeginColor = const Color(0xff0C1B29);
 var gradientMiddleColor = const Color(0xff1d023b);
 var gradientEndColor = const Color(0xff020228);
 var buttonColor = const Color(0xff525285);
+var loginGradientBeginColor = const Color(0xff58577A);
+var loginGradientEndColor = const Color(0xff171639);
 
 var gradientColors = [gradientBeginColor, gradientMiddleColor, gradientEndColor];
 
