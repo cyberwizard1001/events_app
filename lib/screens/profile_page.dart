@@ -5,6 +5,7 @@ import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:events_app/utils/constants.dart' as constants;
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -18,114 +19,114 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const AppBarBackButton("Update Profile"),
-        backgroundColor: colors.scaffoldColor,
-        body: CustomScrollView(
-          slivers: [
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 70,
-                        child: ClipOval(
-                          child: SvgPicture.asset('assets/svg/female.svg'),
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.camera_alt,
-                          size: 20,
-                        ),
-                        color: colors.primaryTextColor,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 20),
-                        child: TextFormField(
-                          style: GoogleFonts.montserrat(color: colors.primaryTextColor),
-                          decoration: InputDecoration(
-                            filled: true,
-                            hintText: 'Sumithra Sudhakar',
-                            suffixIcon: const Icon(Icons.edit),
-                            hintStyle: GoogleFonts.poppins(
-                                color: colors.primaryTextColor.withOpacity(0.7)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(5)),
-                            fillColor: colors.textBoxFill,
-                            focusColor: colors.textBoxFill,
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(5)),
+        body: Container(
+          decoration: constants.gradientDecoration,
+          child: CustomScrollView(
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 70,
+                          child: ClipOval(
+                            child: SvgPicture.asset('assets/svg/female.svg'),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 20),
-                        child: TextFormField(
-                          style: GoogleFonts.montserrat(color: colors.primaryTextColor),
-                          decoration: InputDecoration(
-                            filled: true,
-                            hintText: '1234567890',
-                            suffixIcon: const Icon(Icons.edit),
-                            hintStyle: GoogleFonts.poppins(
-                                color: colors.primaryTextColor.withOpacity(0.7)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(5)),
-                            fillColor: colors.textBoxFill,
-                            focusColor: colors.textBoxFill,
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(5)),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.camera_alt,
+                            size: 20,
+                          ),
+                          color: colors.primaryTextColor,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 20),
+                          child: TextFormField(
+                            style: GoogleFonts.montserrat(color: colors.primaryTextColor),
+                            decoration: InputDecoration(
+                              filled: true,
+                              hintText: 'Sumithra Sudhakar',
+                              suffixIcon: Icon(Icons.edit, color: colors.whiteColor,),
+                              hintStyle: GoogleFonts.poppins(
+                                  color: colors.primaryTextColor.withOpacity(0.7)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(5)),
+                              fillColor: colors.textBoxFill,
+                              focusColor: colors.textBoxFill,
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(5)),
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 20),
-                        child: TextFormField(
-                          style: GoogleFonts.montserrat(color: colors.primaryTextColor),
-                          decoration: InputDecoration(
-                            filled: true,
-                            hintText: 'xyz@gmail.com',
-                            suffixIcon: const Icon(Icons.edit),
-                            hintStyle: GoogleFonts.poppins(
-                                color: colors.primaryTextColor.withOpacity(0.7)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(5)),
-                            fillColor: colors.textBoxFill,
-                            focusColor: colors.textBoxFill,
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(5)),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 20),
+                          child: TextFormField(
+                            style: GoogleFonts.montserrat(color: colors.primaryTextColor),
+                            decoration: InputDecoration(
+                              filled: true,
+                              hintText: '1234567890',
+                              suffixIcon: Icon(Icons.edit, color: colors.whiteColor,),
+                              hintStyle: GoogleFonts.poppins(
+                                  color: colors.primaryTextColor.withOpacity(0.7)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(5)),
+                              fillColor: colors.textBoxFill,
+                              focusColor: colors.textBoxFill,
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(5)),
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 80, 10, 50),
-                        child: GradientButton(
-                            title: 'UPDATE PROFILE',
-                            startingColor: const Color(0xff1D5AFF),
-                            endingColor: const Color(0xff8F48FF),
-                            onPressed: (){Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const CreateEvent()));}),
-                      )
-                    ],
-                  )
-                ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 20),
+                          child: TextFormField(
+                            style: GoogleFonts.montserrat(color: colors.primaryTextColor),
+                            decoration: InputDecoration(
+                              filled: true,
+                              hintText: 'xyz@gmail.com',
+                              suffixIcon: Icon(Icons.edit, color: colors.whiteColor,),
+                              hintStyle: GoogleFonts.poppins(
+                                  color: colors.primaryTextColor.withOpacity(0.7)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(5)),
+                              fillColor: colors.textBoxFill,
+                              focusColor: colors.textBoxFill,
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(5)),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 120, 10, 50),
+                          child: ElevatedButton(
+                            child: const Text('Update Profile'),
+                              onPressed: (){Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const CreateEvent()));}),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }

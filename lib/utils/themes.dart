@@ -20,7 +20,7 @@ class darkTheme {
       appBarTheme: const AppBarTheme(
           elevation: 0, backgroundColor: Colors.transparent, centerTitle: true),
       inputDecorationTheme: InputDecorationTheme(
-        filled: false,
+        filled: true,
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: colors.textBoxBorder, width: 1.0)),
         focusedBorder: OutlineInputBorder(
@@ -36,15 +36,17 @@ class darkTheme {
       ),
       buttonTheme: ButtonThemeData(
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           buttonColor: colors.buttonTextColor),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(colors.accentColor),
+        backgroundColor: MaterialStateProperty.all(colors.buttonColor),
         shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
       )),
     );
   }
 }
+
+

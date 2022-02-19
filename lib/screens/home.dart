@@ -4,6 +4,7 @@ import 'package:events_app/widgets/navigation_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:google_fonts/google_fonts.dart';
+import 'package:events_app/utils/constants.dart' as constants;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -42,44 +43,48 @@ class _HomeState extends State<Home> {
           //TODO: Refresh page on pull
           return _refreshRandomNumbers();
         },
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _HorizontalListView(
-                  context: context,
-                  list: listUpcoming,
-                  title: "Upcoming Events"),
-              _HorizontalListView(
-                  context: context, list: listRSVP, title: "RSVP'd Events"),
-              _dropDown(["ALL EVENTS", "STARRED EVENTS", "RSVP'D EVENTS"],
-                  chosenOption, (newValue) {
-                setState(() {
-                  chosenOption = newValue;
-                });
-              }),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: allEventsList.length,
-                itemBuilder: (_, i) {
-                  return _MainContentCardWidget(
-                    cardTitle: 'Some Festival Name Here',
-                    cardSubTitle: 'This is some festival on some date',
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const EventsPage()));
-                    },
-                    isStarred: (bool) {},
-                    cardDate: 'Feb 2 2022',
-                  );
-                },
-              )
-            ],
+        child: Container(
+          decoration: constants.gradientDecoration,
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _HorizontalListView(
+                    context: context,
+                    list: listUpcoming,
+                    title: "Upcoming Events"),
+                _HorizontalListView(
+                    context: context, list: listRSVP, title: "RSVP'd Events"),
+                _dropDown(["ALL EVENTS", "STARRED EVENTS", "RSVP'D EVENTS"],
+                    chosenOption, (newValue) {
+                  setState(() {
+                    chosenOption = newValue;
+                  });
+                }),
+                const SizedBox(height: 20,),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: allEventsList.length,
+                  itemBuilder: (_, i) {
+                    return _MainContentCardWidget(
+                      cardTitle: 'Some Festival Name Here',
+                      cardSubTitle: 'This is some festival on some date',
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EventsPage()));
+                      },
+                      isStarred: (bool) {},
+                      cardDate: 'Feb 2 2022',
+                    );
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -210,7 +215,7 @@ Widget _horizontalWidgetCard(cardTitle, cardDate, onTap, inFocus) {
             ),
           ],
         ),
-        elevation: 5,
+        elevation: 10,
       ));
 }
 
@@ -251,6 +256,7 @@ class _MainContentCardWidgetState extends State<_MainContentCardWidget> {
                   left: (horizontalCenteredDisplacement) / 2,
                   child: InkWell(
                     child: Card(
+                      elevation: 10,
                       color: colors.inactiveCardColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),

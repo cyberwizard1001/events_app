@@ -3,6 +3,7 @@ import 'package:events_app/utils/colors.dart' as colors;
 import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
+import 'package:events_app/utils/constants.dart' as constants;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -83,52 +84,55 @@ class _FeaturesPageState extends State<FeaturesPage> {
           child: Scaffold(
             body: Stack(
               children:[
-                SvgPicture.asset('assets/svg/background.svg', fit: BoxFit.fill, width: double.infinity,),
-                Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 4,
-                      child: PageView.builder(
-                        controller: controller,
-                        // itemCount: pages.length,
-                        itemBuilder: (_, index) {
-                          return pages[index % pages.length];
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: SmoothPageIndicator(
-                        controller: controller,
-                        count: pages.length,
-                        effect: const JumpingDotEffect(
-                          dotHeight: 10,
-                          dotWidth: 10,
-                          jumpScale: .7,
-                          verticalOffset: 15,
+                Container(
+                  decoration: constants.gradientDecoration,
+                  child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 4,
+                        child: PageView.builder(
+                          controller: controller,
+                          // itemCount: pages.length,
+                          itemBuilder: (_, index) {
+                            return pages[index % pages.length];
+                          },
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 40),
-                      child: GradientButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignUpWidget()));
-                          },
-                          startingColor: const Color(0xff1D5AFF),
-                          endingColor: const Color(0xff8F48FF),
-                          title: 'SIGN UP'),
-                    )
-                  ],
-                ),
-              ),]
+                      Expanded(
+                        flex: 1,
+                        child: SmoothPageIndicator(
+                          controller: controller,
+                          count: pages.length,
+                          effect: const JumpingDotEffect(
+                            dotHeight: 10,
+                            dotWidth: 10,
+                            jumpScale: .7,
+                            verticalOffset: 15,
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: 40),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const SignUpWidget()));
+                              },
+                              child: Text('SIGN UP', style: GoogleFonts.nunito(fontSize: 17, fontWeight: FontWeight.bold),)),
+                        ),
+                      )
+                    ],
+                  ),
+              ),
+                ),]
             ),
           ),
         ),

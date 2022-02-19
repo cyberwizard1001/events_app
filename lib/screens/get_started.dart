@@ -19,10 +19,15 @@ class GetStarted extends StatelessWidget {
             hasScrollBody: false,
             child: Stack(
               children: [
-                SvgPicture.asset(
-                  'assets/svg/background.svg',
-                  width: double.infinity,
-                  fit: BoxFit.fill,
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: colors.gradientColors,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: const [0.0,0.5,1.0]
+                    )
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -36,101 +41,63 @@ class GetStarted extends StatelessWidget {
                       ),
                       Expanded(
                           flex: 3,
-                          child: SvgPicture.asset('assets/svg/title_image.svg')),
+                          child: Text('Replace with app logo'),),
                       Expanded(
-                        flex: 4,
+                        flex: 5,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 30.0, bottom: 10.0),
-                              child: Center(
-                                  child: Text(
-                                'Hi There!',
-                                style: GoogleFonts.raleway(
+                              padding: const EdgeInsets.only(top: 60.0, bottom: 10.0),
+                              child: Text(
+                                "Here's a random line approximate length",
+                                style: GoogleFonts.nunito(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 40,
                                     color: colors.primaryTextColor),
                               )),
-                            ),
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 50),
-                              child: Center(
-                                child: Text(
+                              padding: const EdgeInsets.only(bottom: 50, right: 60),
+                              child: Text(
                                   'A small description of what the app is and what it does',
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.nunito(
                                       color: colors.primaryTextColor,
                                       fontSize: 17,
-                                      fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                               ),
-                            ),
-                            GradientButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const FeaturesPage()));
-                              },
-                              startingColor: const Color(0xff1D5AFF),
-                              endingColor: const Color(0xff8F48FF),
-                              title: 'GET STARTED',
-                            ),
-                            Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30),
-                                child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      primary: colors.whiteColor,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(80.0)),
-                                      padding: const EdgeInsets.all(0.0),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const SignInWidget()));
-                                    },
-                                    child: Container(
-                                        constraints: const BoxConstraints(
-                                            maxWidth: 300.0,
-                                            minHeight: 40,
-                                            maxHeight: 50),
-                                        alignment: Alignment.center,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            'SIGN IN',
-                                            style: GoogleFonts.poppins(
-                                                fontSize: 16,
-                                                color: colors.tertiaryTextColor,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        )))),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text(
-                                  'New around here?',
-                                  style: GoogleFonts.poppins(
-                                      color:
-                                          colors.primaryTextColor.withOpacity(0.7)),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                const SignInWidget()));
+                                      },
+                                      child: Text(
+                                        'Sign In',
+                                        style: GoogleFonts.nunito(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+
+                                        ),
+                                      ),
+                                    ),
+                                const SizedBox(width: 20,),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      primary: colors.primaryTextColor),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => const FeaturesPage()));
+                                  },
+                                  child: Text('Get Started', style: GoogleFonts.nunito(fontSize: 16, color: colors.scaffoldColor,fontWeight: FontWeight.bold,),),
                                 ),
-                                TextButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const SignUpWidget()));
-                                    },
-                                    child: Text(
-                                      'Sign up',
-                                      style: GoogleFonts.poppins(
-                                          color: colors.tertiaryTextColor),
-                                    ))
                               ],
                             )
                           ],

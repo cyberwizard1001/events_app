@@ -3,6 +3,7 @@ import 'package:events_app/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:events_app/utils/colors.dart' as colors;
+import 'package:events_app/utils/constants.dart' as constants;
 
 class EventsPage extends StatefulWidget {
   const EventsPage({Key? key}) : super(key: key);
@@ -16,16 +17,7 @@ class _EventsPageState extends State<EventsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-        gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-        Color(0xff320097),
-          Color(0xff000000)
-    ],
-    ),
-    ),
+        decoration: constants.gradientDecoration,
     child: SingleChildScrollView(
         child: Stack(
           children: [
@@ -44,11 +36,14 @@ class _EventsPageState extends State<EventsPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("EVENT NAME",
-                              style: GoogleFonts.raleway(
-                                  color: Colors.white,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold)),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
+                            child: Text("EVENT NAME",
+                                style: GoogleFonts.raleway(
+                                    color: Colors.white,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold)),
+                          ),
                           IconButton(
                               onPressed: () {},
                               splashRadius: 30,
