@@ -43,19 +43,22 @@ class _AdminEventsPageState extends State<AdminEventsPage> {
                         Padding(
                           padding:
                           const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("EVENT NAME",
-                                  style: GoogleFonts.raleway(
-                                      color: Colors.white,
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.bold)),
-                              IconButton(
-                                  onPressed: () {},
-                                  splashRadius: 30,
-                                  icon: const Icon(Icons.calendar_today_rounded,))
-                            ],
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("EVENT NAME",
+                                    style: GoogleFonts.raleway(
+                                        color: Colors.white,
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold)),
+                                IconButton(
+                                    onPressed: () {},
+                                    splashRadius: 30,
+                                    icon: const Icon(Icons.calendar_today_rounded,))
+                              ],
+                            ),
                           ),
                         ),
                         Padding(
@@ -134,12 +137,16 @@ class _AdminEventsPageState extends State<AdminEventsPage> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 40),
-                      child: GradientButton(
-                        onPressed: () {},
-                        title: 'Modify event',
-                        startingColor: const Color(0xff1D5AFF),
-                        endingColor: const Color(0xff8F48FF),
+                      padding: const EdgeInsets.only(right: 20.0),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 40),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Modify event'),
+                          ),
+                        ),
                       ),
                     ),
                   ],

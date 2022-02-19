@@ -47,7 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 30, vertical: 20),
+                              horizontal: 30, vertical: 10),
                           child: TextFormField(
                             style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                             decoration: InputDecoration(
@@ -69,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 30, vertical: 20),
+                              horizontal: 30, vertical: 10),
                           child: TextFormField(
                             style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                             decoration: InputDecoration(
@@ -91,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 30, vertical: 20),
+                              horizontal: 30, vertical: 10),
                           child: TextFormField(
                             style: GoogleFonts.montserrat(color: colors.primaryTextColor),
                             decoration: InputDecoration(
@@ -111,14 +111,17 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 120, 10, 50),
-                          child: ElevatedButton(
-                            child: const Text('Update Profile'),
-                              onPressed: (){Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const CreateEvent()));}),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(30, 50, 10, 50),
+                            child: ElevatedButton(
+                              child: Text('Update Profile',style: GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 15),),
+                                onPressed: (){Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const CreateEvent()));}),
+                          ),
                         )
                       ],
                     )

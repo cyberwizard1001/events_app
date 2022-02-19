@@ -89,6 +89,8 @@ class _HomeState extends State<Home> {
         ),
       ),
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color(0xff0A1A2E),
         iconTheme: IconThemeData(color: colors.accentColor),
         centerTitle: true,
         title: Text(

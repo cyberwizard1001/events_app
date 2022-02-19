@@ -96,12 +96,16 @@ class _EventsPageState extends State<EventsPage> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 40),
-                  child: GradientButton(
-                    onPressed: () {},
-                    title: 'RSVP to this event',
-                    startingColor: const Color(0xff1D5AFF),
-                    endingColor: const Color(0xff8F48FF),
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 40),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('RSVP to this event'),
+                      ),
+                    ),
                   ),
                 ),
               ],
