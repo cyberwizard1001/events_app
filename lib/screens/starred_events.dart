@@ -8,6 +8,7 @@ import 'package:events_app/utils/constants.dart' as constants;
 class StarredWidget extends StatelessWidget {
   const StarredWidget({Key? key}) : super(key: key);
 
+  //TODO: Return starred events in al listview
   @override
   Widget build(BuildContext context) {
     return Scaffold(

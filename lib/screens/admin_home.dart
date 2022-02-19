@@ -89,7 +89,7 @@ class _AdminHomeState extends State<AdminHome> {
         iconTheme: IconThemeData(color: colors.accentColor),
         centerTitle: true,
         title: Text(
-          "Home",
+          "Admin Console",
           style: GoogleFonts.montserrat(
               fontSize: 22, color: colors.primaryTextColor),
         ),
