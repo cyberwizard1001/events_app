@@ -9,31 +9,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 //TODO: Change SVG colors to white
 //TODO: Add more white space to the home page
 //
-// /Firebase Auth Phone:
-//  await Firebase.initializeApp();
-//
-//   await FirebaseAuth.instance.verifyPhoneNumber(
-//     phoneNumber: '+91 9080336541',
-//     verificationCompleted: (PhoneAuthCredential credential) {
-//       print("COMPLETE");
-//     },
-//     verificationFailed: (FirebaseAuthException e) {
-//       print(e);
-//       print("FAILED");
-//     },
-//     codeSent: (String verificationId, int? resendToken) {
-//       PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationId, smsCode: "173456");
-//       print("credential" + credential.token.toString());
-//     },
-//     codeAutoRetrievalTimeout: (String verificationId) {
-//     },
-//   );
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
+  //Firebase Auth Phone:
+ await Firebase.initializeApp();
   runApp(const MainApp());
 }
 
