@@ -20,6 +20,6 @@ class _UserManagementPageState extends State<UserManagementPage> {
           decoration: constants.gradientDecoration,
           child: const AdminListViewWidget(),
         )
-    );;;
+    );
   }
 }

@@ -43,6 +43,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   firebase_auth: ^3.3.7
   firebase_core: ^1.12.0
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:

@@ -23,6 +23,7 @@ var gradientEndColor = const Color(0xff020228);
 var buttonColor = const Color(0xff525285);
 var loginGradientBeginColor = const Color(0xff58577A);
 var loginGradientEndColor = const Color(0xff171639);
+var dateCardColor = const Color(0xff454166);
 
 var gradientColors = [gradientBeginColor, gradientMiddleColor, gradientEndColor];
 
