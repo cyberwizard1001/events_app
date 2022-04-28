@@ -1,8 +1,8 @@
-import 'package:events_app/screens/admin_home.dart';
+import 'package:events_app/screens/admin/admin_home.dart';
 import 'package:events_app/screens/get_started.dart';
 import 'package:events_app/screens/profile_page.dart';
 import 'package:events_app/screens/starred_events.dart';
-import 'package:events_app/screens/user_management.dart';
+import 'package:events_app/screens/admin/user_management.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

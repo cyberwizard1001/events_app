@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:events_app/screens/admin_eventpage.dart';
+import 'package:events_app/screens/admin/admin_eventpage.dart';
 import 'package:events_app/screens/events_page.dart';
-import 'package:events_app/screens/people_list.dart';
+import 'package:events_app/screens/admin/people_list.dart';
 import 'package:events_app/widgets/navigation_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:events_app/utils/colors.dart' as colors;

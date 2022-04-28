@@ -1,4 +1,4 @@
-import 'package:events_app/screens/create_event.dart';
+import 'package:events_app/screens/admin/create_event.dart';
 import 'package:events_app/utils/colors.dart' as colors;
 import 'package:events_app/widgets/appbar_back_button.dart';
 import 'package:events_app/widgets/gradient_button.dart';

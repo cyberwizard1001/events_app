@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "687769421564",
+    "project_id": "amritaevents-9aa79",
+    "storage_bucket": "amritaevents-9aa79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687769421564:android:26b2c171c454333f0ff979",
+        "android_client_info": {
+          "package_name": "com.example.events_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687769421564-usvt0mkbg78salec03acjv0dpcc1cmj5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.events_app",
+            "certificate_hash": "2292323c2b951cfbb44e3e856f508efaad5869f0"
+          }
+        },
+        {
+          "client_id": "687769421564-jiuhcq609mp3apolcm058ds5jhn5fvjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfXS4JLU8a6hiu1sT8R1Ei4y5EgKMQtPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687769421564-jiuhcq609mp3apolcm058ds5jhn5fvjq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

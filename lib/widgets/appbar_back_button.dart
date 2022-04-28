@@ -35,9 +35,9 @@ class AppBarBackButton extends StatelessWidget implements PreferredSizeWidget {
             Navigator.pop(context);
           }),
       actions: actions ?? [],
-      centerTitle: true,
+      centerTitle: false,
       title: Text(
-        title,
+        "${title}",
         style: GoogleFonts.montserrat(
             fontSize: 22, color: colors.primaryTextColor),
       ),
