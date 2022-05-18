@@ -1,5 +1,6 @@
 import 'package:events_app/screens/admin/admin_home.dart';
 import 'package:events_app/screens/get_started.dart';
+import 'package:events_app/screens/home.dart';
 import 'package:events_app/screens/profile_page.dart';
 import 'package:events_app/screens/starred_events.dart';
 import 'package:events_app/screens/admin/user_management.dart';
@@ -40,6 +41,14 @@ class NavigationDrawer extends StatelessWidget {
                     color: colors.primaryTextColor,
                   ),
                 )),
+            buildDrawerItem(
+                text: 'Home',
+                icon: Icons.home,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Home()));}),
             buildDrawerItem(
                 icon: Icons.person_outline_rounded,
                 text: "Profile",
